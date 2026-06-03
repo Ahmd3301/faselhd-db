@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.scrapy/
+*.log
+tests/.last_result
+.env
+*.db
