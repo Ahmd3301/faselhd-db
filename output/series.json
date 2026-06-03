@@ -1,0 +1,629 @@
+{
+  "section": "series",
+  "base_url": "http://localhost:8765",
+  "scraped_at": "2026-06-03T01:38:13Z",
+  "total": 77,
+  "items": [
+    {
+      "section_key": "series",
+      "rank": 1,
+      "slug": "mock-series-NEW-1780450691385-4",
+      "name": "Mock-series-NEW-1780450691385-4",
+      "img": "https://static.faselhdcdn.com/mock/series/NEW-1780450691385-4.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-NEW-1780450691385-4",
+      "added_at": "2026-06-03T01:38:13Z"
+    },
+    {
+      "section_key": "series",
+      "rank": 2,
+      "slug": "mock-series-NEW-1780450691385-3",
+      "name": "Mock-series-NEW-1780450691385-3",
+      "img": "https://static.faselhdcdn.com/mock/series/NEW-1780450691385-3.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-NEW-1780450691385-3",
+      "added_at": "2026-06-03T01:38:13Z"
+    },
+    {
+      "section_key": "series",
+      "rank": 3,
+      "slug": "mock-series-NEW-1780450691385-2",
+      "name": "Mock-series-NEW-1780450691385-2",
+      "img": "https://static.faselhdcdn.com/mock/series/NEW-1780450691385-2.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-NEW-1780450691385-2",
+      "added_at": "2026-06-03T01:38:13Z"
+    },
+    {
+      "section_key": "series",
+      "rank": 4,
+      "slug": "mock-series-NEW-1780450691385-1",
+      "name": "Mock-series-NEW-1780450691385-1",
+      "img": "https://static.faselhdcdn.com/mock/series/NEW-1780450691385-1.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-NEW-1780450691385-1",
+      "added_at": "2026-06-03T01:38:13Z"
+    },
+    {
+      "section_key": "series",
+      "rank": 5,
+      "slug": "mock-series-NEW-1780450691385-0",
+      "name": "Mock-series-NEW-1780450691385-0",
+      "img": "https://static.faselhdcdn.com/mock/series/NEW-1780450691385-0.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-NEW-1780450691385-0",
+      "added_at": "2026-06-03T01:38:13Z"
+    },
+    {
+      "rank": 6,
+      "slug": "mock-series-1",
+      "name": "Mock-series-1",
+      "img": "https://static.faselhdcdn.com/mock/series/1.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-1",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 7,
+      "slug": "mock-series-2",
+      "name": "Mock-series-2",
+      "img": "https://static.faselhdcdn.com/mock/series/2.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-2",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 8,
+      "slug": "mock-series-3",
+      "name": "Mock-series-3",
+      "img": "https://static.faselhdcdn.com/mock/series/3.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-3",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 9,
+      "slug": "mock-series-4",
+      "name": "Mock-series-4",
+      "img": "https://static.faselhdcdn.com/mock/series/4.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-4",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 10,
+      "slug": "mock-series-5",
+      "name": "Mock-series-5",
+      "img": "https://static.faselhdcdn.com/mock/series/5.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-5",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 11,
+      "slug": "mock-series-6",
+      "name": "Mock-series-6",
+      "img": "https://static.faselhdcdn.com/mock/series/6.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-6",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 12,
+      "slug": "mock-series-7",
+      "name": "Mock-series-7",
+      "img": "https://static.faselhdcdn.com/mock/series/7.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-7",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 13,
+      "slug": "mock-series-8",
+      "name": "Mock-series-8",
+      "img": "https://static.faselhdcdn.com/mock/series/8.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-8",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 14,
+      "slug": "mock-series-9",
+      "name": "Mock-series-9",
+      "img": "https://static.faselhdcdn.com/mock/series/9.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-9",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 15,
+      "slug": "mock-series-10",
+      "name": "Mock-series-10",
+      "img": "https://static.faselhdcdn.com/mock/series/10.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-10",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 16,
+      "slug": "mock-series-11",
+      "name": "Mock-series-11",
+      "img": "https://static.faselhdcdn.com/mock/series/11.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-11",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 17,
+      "slug": "mock-series-12",
+      "name": "Mock-series-12",
+      "img": "https://static.faselhdcdn.com/mock/series/12.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-12",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 18,
+      "slug": "mock-series-13",
+      "name": "Mock-series-13",
+      "img": "https://static.faselhdcdn.com/mock/series/13.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-13",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 19,
+      "slug": "mock-series-14",
+      "name": "Mock-series-14",
+      "img": "https://static.faselhdcdn.com/mock/series/14.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-14",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 20,
+      "slug": "mock-series-15",
+      "name": "Mock-series-15",
+      "img": "https://static.faselhdcdn.com/mock/series/15.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-15",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 21,
+      "slug": "mock-series-16",
+      "name": "Mock-series-16",
+      "img": "https://static.faselhdcdn.com/mock/series/16.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-16",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 22,
+      "slug": "mock-series-17",
+      "name": "Mock-series-17",
+      "img": "https://static.faselhdcdn.com/mock/series/17.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-17",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 23,
+      "slug": "mock-series-18",
+      "name": "Mock-series-18",
+      "img": "https://static.faselhdcdn.com/mock/series/18.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-18",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 24,
+      "slug": "mock-series-19",
+      "name": "Mock-series-19",
+      "img": "https://static.faselhdcdn.com/mock/series/19.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-19",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 25,
+      "slug": "mock-series-20",
+      "name": "Mock-series-20",
+      "img": "https://static.faselhdcdn.com/mock/series/20.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-20",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 26,
+      "slug": "mock-series-21",
+      "name": "Mock-series-21",
+      "img": "https://static.faselhdcdn.com/mock/series/21.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-21",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 27,
+      "slug": "mock-series-22",
+      "name": "Mock-series-22",
+      "img": "https://static.faselhdcdn.com/mock/series/22.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-22",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 28,
+      "slug": "mock-series-23",
+      "name": "Mock-series-23",
+      "img": "https://static.faselhdcdn.com/mock/series/23.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-23",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 29,
+      "slug": "mock-series-24",
+      "name": "Mock-series-24",
+      "img": "https://static.faselhdcdn.com/mock/series/24.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-24",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 30,
+      "slug": "mock-series-25",
+      "name": "Mock-series-25",
+      "img": "https://static.faselhdcdn.com/mock/series/25.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-25",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 31,
+      "slug": "mock-series-26",
+      "name": "Mock-series-26",
+      "img": "https://static.faselhdcdn.com/mock/series/26.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-26",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 32,
+      "slug": "mock-series-27",
+      "name": "Mock-series-27",
+      "img": "https://static.faselhdcdn.com/mock/series/27.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-27",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 33,
+      "slug": "mock-series-28",
+      "name": "Mock-series-28",
+      "img": "https://static.faselhdcdn.com/mock/series/28.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-28",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 34,
+      "slug": "mock-series-29",
+      "name": "Mock-series-29",
+      "img": "https://static.faselhdcdn.com/mock/series/29.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-29",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 35,
+      "slug": "mock-series-30",
+      "name": "Mock-series-30",
+      "img": "https://static.faselhdcdn.com/mock/series/30.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-30",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 36,
+      "slug": "mock-series-31",
+      "name": "Mock-series-31",
+      "img": "https://static.faselhdcdn.com/mock/series/31.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-31",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 37,
+      "slug": "mock-series-32",
+      "name": "Mock-series-32",
+      "img": "https://static.faselhdcdn.com/mock/series/32.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-32",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 38,
+      "slug": "mock-series-33",
+      "name": "Mock-series-33",
+      "img": "https://static.faselhdcdn.com/mock/series/33.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-33",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 39,
+      "slug": "mock-series-34",
+      "name": "Mock-series-34",
+      "img": "https://static.faselhdcdn.com/mock/series/34.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-34",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 40,
+      "slug": "mock-series-35",
+      "name": "Mock-series-35",
+      "img": "https://static.faselhdcdn.com/mock/series/35.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-35",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 41,
+      "slug": "mock-series-36",
+      "name": "Mock-series-36",
+      "img": "https://static.faselhdcdn.com/mock/series/36.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-36",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 42,
+      "slug": "mock-series-37",
+      "name": "Mock-series-37",
+      "img": "https://static.faselhdcdn.com/mock/series/37.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-37",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 43,
+      "slug": "mock-series-38",
+      "name": "Mock-series-38",
+      "img": "https://static.faselhdcdn.com/mock/series/38.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-38",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 44,
+      "slug": "mock-series-39",
+      "name": "Mock-series-39",
+      "img": "https://static.faselhdcdn.com/mock/series/39.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-39",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 45,
+      "slug": "mock-series-40",
+      "name": "Mock-series-40",
+      "img": "https://static.faselhdcdn.com/mock/series/40.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-40",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 46,
+      "slug": "mock-series-41",
+      "name": "Mock-series-41",
+      "img": "https://static.faselhdcdn.com/mock/series/41.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-41",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 47,
+      "slug": "mock-series-42",
+      "name": "Mock-series-42",
+      "img": "https://static.faselhdcdn.com/mock/series/42.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-42",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 48,
+      "slug": "mock-series-43",
+      "name": "Mock-series-43",
+      "img": "https://static.faselhdcdn.com/mock/series/43.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-43",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 49,
+      "slug": "mock-series-44",
+      "name": "Mock-series-44",
+      "img": "https://static.faselhdcdn.com/mock/series/44.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-44",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 50,
+      "slug": "mock-series-45",
+      "name": "Mock-series-45",
+      "img": "https://static.faselhdcdn.com/mock/series/45.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-45",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 51,
+      "slug": "mock-series-46",
+      "name": "Mock-series-46",
+      "img": "https://static.faselhdcdn.com/mock/series/46.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-46",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 52,
+      "slug": "mock-series-47",
+      "name": "Mock-series-47",
+      "img": "https://static.faselhdcdn.com/mock/series/47.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-47",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 53,
+      "slug": "mock-series-48",
+      "name": "Mock-series-48",
+      "img": "https://static.faselhdcdn.com/mock/series/48.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-48",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 54,
+      "slug": "mock-series-49",
+      "name": "Mock-series-49",
+      "img": "https://static.faselhdcdn.com/mock/series/49.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-49",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 55,
+      "slug": "mock-series-50",
+      "name": "Mock-series-50",
+      "img": "https://static.faselhdcdn.com/mock/series/50.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-50",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 56,
+      "slug": "mock-series-51",
+      "name": "Mock-series-51",
+      "img": "https://static.faselhdcdn.com/mock/series/51.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-51",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 57,
+      "slug": "mock-series-52",
+      "name": "Mock-series-52",
+      "img": "https://static.faselhdcdn.com/mock/series/52.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-52",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 58,
+      "slug": "mock-series-53",
+      "name": "Mock-series-53",
+      "img": "https://static.faselhdcdn.com/mock/series/53.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-53",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 59,
+      "slug": "mock-series-54",
+      "name": "Mock-series-54",
+      "img": "https://static.faselhdcdn.com/mock/series/54.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-54",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 60,
+      "slug": "mock-series-55",
+      "name": "Mock-series-55",
+      "img": "https://static.faselhdcdn.com/mock/series/55.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-55",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 61,
+      "slug": "mock-series-56",
+      "name": "Mock-series-56",
+      "img": "https://static.faselhdcdn.com/mock/series/56.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-56",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 62,
+      "slug": "mock-series-57",
+      "name": "Mock-series-57",
+      "img": "https://static.faselhdcdn.com/mock/series/57.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-57",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 63,
+      "slug": "mock-series-58",
+      "name": "Mock-series-58",
+      "img": "https://static.faselhdcdn.com/mock/series/58.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-58",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 64,
+      "slug": "mock-series-59",
+      "name": "Mock-series-59",
+      "img": "https://static.faselhdcdn.com/mock/series/59.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-59",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 65,
+      "slug": "mock-series-60",
+      "name": "Mock-series-60",
+      "img": "https://static.faselhdcdn.com/mock/series/60.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-60",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 66,
+      "slug": "mock-series-61",
+      "name": "Mock-series-61",
+      "img": "https://static.faselhdcdn.com/mock/series/61.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-61",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 67,
+      "slug": "mock-series-62",
+      "name": "Mock-series-62",
+      "img": "https://static.faselhdcdn.com/mock/series/62.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-62",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 68,
+      "slug": "mock-series-63",
+      "name": "Mock-series-63",
+      "img": "https://static.faselhdcdn.com/mock/series/63.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-63",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 69,
+      "slug": "mock-series-64",
+      "name": "Mock-series-64",
+      "img": "https://static.faselhdcdn.com/mock/series/64.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-64",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 70,
+      "slug": "mock-series-65",
+      "name": "Mock-series-65",
+      "img": "https://static.faselhdcdn.com/mock/series/65.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-65",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 71,
+      "slug": "mock-series-66",
+      "name": "Mock-series-66",
+      "img": "https://static.faselhdcdn.com/mock/series/66.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-66",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 72,
+      "slug": "mock-series-67",
+      "name": "Mock-series-67",
+      "img": "https://static.faselhdcdn.com/mock/series/67.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-67",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 73,
+      "slug": "mock-series-68",
+      "name": "Mock-series-68",
+      "img": "https://static.faselhdcdn.com/mock/series/68.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-68",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 74,
+      "slug": "mock-series-69",
+      "name": "Mock-series-69",
+      "img": "https://static.faselhdcdn.com/mock/series/69.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-69",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 75,
+      "slug": "mock-series-70",
+      "name": "Mock-series-70",
+      "img": "https://static.faselhdcdn.com/mock/series/70.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-70",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 76,
+      "slug": "mock-series-71",
+      "name": "Mock-series-71",
+      "img": "https://static.faselhdcdn.com/mock/series/71.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-71",
+      "added_at": "2026-06-03T01:38:09Z"
+    },
+    {
+      "rank": 77,
+      "slug": "mock-series-72",
+      "name": "Mock-series-72",
+      "img": "https://static.faselhdcdn.com/mock/series/72.jpg",
+      "link": "https://www.fasel-hd.cam/seasons/mock-series-72",
+      "added_at": "2026-06-03T01:38:09Z"
+    }
+  ]
+}
