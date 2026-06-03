@@ -6,7 +6,12 @@ import subprocess
 import sys
 import tempfile
 import time
+import urllib.request
+import urllib.error
+from urllib.parse import urlparse, urlunparse, unquote
 from datetime import datetime, timezone
+
+import parsel
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
@@ -15,6 +20,8 @@ SECTIONS = [
     "movies", "series", "anime", "asian-series",
     "asian-movies", "hindi", "anime-movies", "tvshows",
 ]
+
+UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
 
 def eprint(*args, **kwargs):
@@ -37,7 +44,56 @@ def save_db(section, data):
     eprint(f"  wrote {len(data['items'])} items -> {path}")
 
 
-def _run_spider(spider_name, section, max_pages, base_url, extra_settings=None, page=None):
+def _normalize_link(url):
+    parsed = urlparse(url)
+    return urlunparse(parsed._replace(netloc="www.fasel-hd.cam"))
+
+
+def _extract_slug(url):
+    path = urlparse(url).path
+    decoded = unquote(path)
+    return decoded.rstrip("/").split("/")[-1]
+
+
+def fetch_page(section, page_num, base_url):
+    """Fetch one page via HTTP and return parsed items (no Scrapy subprocess)."""
+    url = f"{base_url}/{section}/page/{page_num}"
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        resp = urllib.request.urlopen(req, timeout=30)
+        html = resp.read().decode("utf-8", errors="replace")
+    except urllib.error.HTTPError:
+        return []
+    except Exception:
+        return []
+
+    sel = parsel.Selector(text=html)
+    items = []
+    for container in sel.css("#postList .postDiv"):
+        anchor = container.css("a")
+        if not anchor:
+            continue
+        img = anchor.css("img")
+        if not img:
+            continue
+        name = img.attrib.get("alt", "").strip()
+        img_url = img.attrib.get("data-src") or img.attrib.get("src", "")
+        link = anchor.attrib.get("href", "")
+        if not name or not img_url or not link:
+            continue
+        norm_link = _normalize_link(link.strip())
+        items.append({
+            "section_key": section,
+            "rank": 0,
+            "slug": _extract_slug(norm_link),
+            "name": name,
+            "img": img_url.strip(),
+            "link": norm_link,
+        })
+    return items
+
+
+def _run_spider(spider_name, section, max_pages, base_url, extra_settings=None):
     with tempfile.NamedTemporaryFile(suffix=".jl", delete=False, dir=BASE_DIR) as tmp:
         tmp_path = tmp.name
 
@@ -49,8 +105,6 @@ def _run_spider(spider_name, section, max_pages, base_url, extra_settings=None, 
         "-o", tmp_path,
         "-s", "LOG_LEVEL=ERROR",
     ]
-    if page:
-        args.extend(["-a", f"page={page}"])
     if extra_settings:
         for k, v in extra_settings.items():
             args.extend(["-s", f"{k}={v}"])
@@ -68,10 +122,6 @@ def _run_spider(spider_name, section, max_pages, base_url, extra_settings=None, 
                     items.append(json.loads(line))
         os.unlink(tmp_path)
     return items
-
-
-def fetch_page(section, page_num, base_url):
-    return _run_spider("faselhd_update", section, max_pages=1, base_url=base_url, page=page_num)
 
 
 def _run_full_scrape(section, base_url):
