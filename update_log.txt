@@ -48,3 +48,8 @@ Run: 2026-06-03T01:38:13Z
 Total new: 5 items across 1 sections
 Duration: 2s
 
+Run: 2026-06-03T01:38:37Z
+[series         ] +24 -> new total
+Total new: 24 items across 1 sections
+Duration: 10s
+
