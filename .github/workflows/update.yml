@@ -28,5 +28,11 @@ jobs:
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
           GIT_USER_NAME:  ${{ secrets.GIT_USER_NAME }}
 
+      - name: Send Telegram notification
+        run: python telegram_notify.py
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:  ${{ secrets.TELEGRAM_CHAT_ID }}
+
       - name: Show summary
         run: cat update_log.txt || echo "No log file"
