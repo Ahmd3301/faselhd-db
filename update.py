@@ -55,16 +55,26 @@ def _extract_slug(url):
     return decoded.rstrip("/").split("/")[-1]
 
 
-def fetch_page(section, page_num, base_url):
-    """Fetch one page via HTTP and return parsed items (no Scrapy subprocess)."""
+def fetch_page(section, page_num, base_url, retries=3):
+    """Fetch one page via HTTP with retry on 429."""
     url = f"{base_url}/{section}/page/{page_num}"
-    try:
-        req = urllib.request.Request(url, headers={"User-Agent": UA})
-        resp = urllib.request.urlopen(req, timeout=30)
-        html = resp.read().decode("utf-8", errors="replace")
-    except urllib.error.HTTPError:
-        return []
-    except Exception:
+    for attempt in range(1, retries + 1):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": UA})
+            resp = urllib.request.urlopen(req, timeout=30)
+            html = resp.read().decode("utf-8", errors="replace")
+            break
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                eprint(f"  [429] {section} p{page_num} rate limited, "
+                       f"retry {attempt}/{retries}")
+                time.sleep(2 * attempt)
+                continue
+            return []
+        except Exception:
+            return []
+    else:
+        eprint(f"  [429] {section} p{page_num} exhausted retries")
         return []
 
     sel = parsel.Selector(text=html)
@@ -143,8 +153,9 @@ def update_section(section, base_url, dry_run):
     db_slugs = {item["slug"] for item in db["items"]}
     all_new_items = []
     page = 1
+    max_pages = 100
 
-    while True:
+    while page <= max_pages:
         items = fetch_page(section, page, base_url)
 
         if not items:
@@ -163,7 +174,11 @@ def update_section(section, base_url, dry_run):
                 break
             if len(items) < 24:
                 break
+        else:
+            break
+
         page += 1
+        time.sleep(0.5)
 
     if not all_new_items:
         return {"section": section, "status": "no_changes"}
@@ -235,7 +250,9 @@ def main():
     start = time.time()
     results = []
 
-    for sec in sections:
+    for i, sec in enumerate(sections):
+        if i > 0:
+            time.sleep(1.5)
         r = update_section(sec, base_url=base_url, dry_run=args.dry_run)
         results.append(r)
         status_icon = {"updated": "+", "no_changes": "=", "full_scrape": "*",
