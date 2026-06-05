@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+import random
 import subprocess
 import sys
 import tempfile
@@ -55,8 +56,8 @@ def _extract_slug(url):
     return decoded.rstrip("/").split("/")[-1]
 
 
-def fetch_page(section, page_num, base_url, retries=3):
-    """Fetch one page via HTTP with retry on 429."""
+def fetch_page(section, page_num, base_url, retries=5):
+    """Fetch one page via HTTP with exponential-backoff retry on 429."""
     url = f"{base_url}/{section}/page/{page_num}"
     for attempt in range(1, retries + 1):
         try:
@@ -66,9 +67,10 @@ def fetch_page(section, page_num, base_url, retries=3):
             break
         except urllib.error.HTTPError as e:
             if e.code == 429:
+                wait = 2 ** attempt
                 eprint(f"  [429] {section} p{page_num} rate limited, "
-                       f"retry {attempt}/{retries}")
-                time.sleep(2 * attempt)
+                       f"retry {attempt}/{retries} (wait {wait}s)")
+                time.sleep(wait)
                 continue
             return []
         except Exception:
@@ -178,7 +180,7 @@ def update_section(section, base_url, dry_run):
             break
 
         page += 1
-        time.sleep(0.5)
+        time.sleep(1)
 
     if not all_new_items:
         return {"section": section, "status": "no_changes"}
@@ -252,7 +254,7 @@ def main():
 
     for i, sec in enumerate(sections):
         if i > 0:
-            time.sleep(1.5)
+            time.sleep(random.uniform(3, 6))
         r = update_section(sec, base_url=base_url, dry_run=args.dry_run)
         results.append(r)
         status_icon = {"updated": "+", "no_changes": "=", "full_scrape": "*",
