@@ -76,8 +76,11 @@ def parse_log():
         "duration": duration,
     }
 
-def count_reports():
-    """Count number of past reports in log."""
+def get_run_number():
+    """Use GITHUB_RUN_NUMBER env var, fall back to counting log entries."""
+    env_num = os.environ.get("GITHUB_RUN_NUMBER")
+    if env_num:
+        return int(env_num)
     if not os.path.exists(LOG_PATH):
         return 0
     with open(LOG_PATH, "r", encoding="utf-8") as f:
@@ -96,12 +99,12 @@ def send_telegram(message):
         return None
 
 def main():
-    report_num = count_reports()
+    run_num = get_run_number()
     info = parse_log()
 
     if not info:
         msg = (
-            f"Report No. ({report_num})\n"
+            f"Auto Update FaselHD Database #{run_num}:\n"
             f"{format_date(datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'))}\n"
             f"{'─'*30}\n"
             f"No update data available\n"
@@ -114,7 +117,7 @@ def main():
     run_dt = info["run_time"] if info["run_time"] else datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     date_str = format_date(run_dt)
 
-    lines = [f"Report No. ({report_num})", date_str, "─"*30]
+    lines = [f"Auto Update FaselHD Database #{run_num}:", date_str, "─"*30]
 
     has_changes = False
     for s in info["sections"]:
