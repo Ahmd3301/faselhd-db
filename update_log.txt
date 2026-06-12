@@ -413,3 +413,15 @@ Run: 2026-06-12T05:31:12Z
 Total new: 1 items across 1 sections
 Duration: 53s
 
+Run: 2026-06-12T08:31:13Z
+[movies         ] +1 -> new total
+[series         ] +0  -> skipped
+[anime          ] +0  -> skipped
+[asian-series   ] +0  -> skipped
+[asian-movies   ] +0  -> skipped
+[hindi          ] +0  -> skipped
+[anime-movies   ] +0  -> skipped
+[tvshows        ] +0  -> skipped
+Total new: 1 items across 1 sections
+Duration: 49s
+
