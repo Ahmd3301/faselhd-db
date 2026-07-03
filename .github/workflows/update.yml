@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '*/30 * * * *'
 
+permissions:
+  contents: write
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -13,7 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PAT_TOKEN }}
           fetch-depth: 1
 
       - uses: actions/setup-python@v5
