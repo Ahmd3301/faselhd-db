@@ -809,3 +809,15 @@ Run: 2026-07-04T13:41:43Z
 Total new: 1 items across 1 sections
 Duration: 53s
 
+Run: 2026-07-04T21:02:17Z
+[movies         ] +0  -> skipped
+[series         ] +0  -> skipped
+[anime          ] +4 -> new total
+[asian-series   ] +2 -> new total
+[asian-movies   ] +0  -> skipped
+[hindi          ] +0  -> skipped
+[anime-movies   ] +0  -> skipped
+[tvshows        ] +0  -> skipped
+Total new: 6 items across 2 sections
+Duration: 47s
+
