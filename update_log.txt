@@ -1421,3 +1421,15 @@ Run: 2026-07-22T19:26:17Z
 Total new: 1 items across 1 sections
 Duration: 51s
 
+Run: 2026-07-22T20:40:11Z
+[movies         ] +0  -> skipped
+[series         ] +0  -> skipped
+[anime          ] +0  -> skipped
+[asian-series   ] +1 -> new total
+[asian-movies   ] +0  -> skipped
+[hindi          ] +0  -> skipped
+[anime-movies   ] +0  -> skipped
+[tvshows        ] +0  -> skipped
+Total new: 1 items across 1 sections
+Duration: 54s
+
