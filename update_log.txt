@@ -1445,3 +1445,15 @@ Run: 2026-07-23T11:25:40Z
 Total new: 1 items across 1 sections
 Duration: 47s
 
+Run: 2026-07-23T17:26:08Z
+[movies         ] +3 -> new total
+[series         ] +0  -> skipped
+[anime          ] +0  -> skipped
+[asian-series   ] +0  -> skipped
+[asian-movies   ] +1 -> new total
+[hindi          ] +0  -> skipped
+[anime-movies   ] +0  -> skipped
+[tvshows        ] +0  -> skipped
+Total new: 4 items across 2 sections
+Duration: 50s
+
