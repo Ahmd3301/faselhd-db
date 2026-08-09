@@ -1937,3 +1937,15 @@ Run: 2026-08-08T23:32:54Z
 Total new: 1 items across 1 sections
 Duration: 58s
 
+Run: 2026-08-09T20:36:48Z
+[movies         ] +0  -> skipped
+[series         ] +0  -> skipped
+[anime          ] +0  -> skipped
+[asian-series   ] +1 -> new total
+[asian-movies   ] +0  -> skipped
+[hindi          ] +0  -> skipped
+[anime-movies   ] +0  -> skipped
+[tvshows        ] +0  -> skipped
+Total new: 1 items across 1 sections
+Duration: 39s
+
