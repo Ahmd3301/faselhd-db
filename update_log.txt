@@ -2261,3 +2261,15 @@ Run: 2026-08-20T04:40:39Z
 Total new: 1 items across 1 sections
 Duration: 56s
 
+Run: 2026-08-20T09:38:22Z
+[movies         ] +0  -> skipped
+[series         ] +0  -> skipped
+[anime          ] +0  -> skipped
+[asian-series   ] +1 -> new total
+[asian-movies   ] +0  -> skipped
+[hindi          ] +0  -> skipped
+[anime-movies   ] +0  -> skipped
+[tvshows        ] +0  -> skipped
+Total new: 1 items across 1 sections
+Duration: 53s
+
