@@ -6,3 +6,5 @@ __pycache__/
 tests/.last_result
 .env
 *.db
+.wrangler/
+output/.delta/

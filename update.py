@@ -16,6 +16,7 @@ import parsel
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+DELTA_DIR = os.path.join(OUTPUT_DIR, ".delta")
 
 SECTIONS = [
     "movies", "series", "anime", "asian-series",
@@ -43,6 +44,17 @@ def save_db(section, data):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
     eprint(f"  wrote {len(data['items'])} items -> {path}")
+
+
+def save_delta(section, items):
+    if not items:
+        return
+    os.makedirs(DELTA_DIR, exist_ok=True)
+    path = os.path.join(DELTA_DIR, f"{section}.json")
+    payload = {"section": section, "items": items}
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, ensure_ascii=False)
+    eprint(f"  delta {len(items)} items -> {path}")
 
 
 def _normalize_link(url):
@@ -150,6 +162,9 @@ def update_section(section, base_url, dry_run):
             items = fetch_page(section, 1, base_url)
             return {"section": section, "status": "full_scrape_needed", "new_count": len(items)}
         count = _run_full_scrape(section, base_url)
+        fresh = load_db(section)
+        if fresh and fresh.get("items"):
+            save_delta(section, fresh["items"])
         return {"section": section, "status": "full_scrape", "new_count": count}
 
     db_slugs = {item["slug"] for item in db["items"]}
@@ -200,6 +215,7 @@ def update_section(section, base_url, dry_run):
 
     if not dry_run:
         save_db(section, db)
+        save_delta(section, all_new_items)
 
     return {"section": section, "status": "updated", "new_count": len(all_new_items)}
 

@@ -30,6 +30,19 @@ jobs:
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
           GIT_USER_NAME:  ${{ secrets.GIT_USER_NAME }}
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Push new items to Cloudflare D1
+        run: |
+          npm install -g wrangler@4 --silent
+          python d1_push.py
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_DATABASE_NAME: faselhd-db
+
       - name: Send Telegram notification
         run: python telegram_notify.py
         env:
