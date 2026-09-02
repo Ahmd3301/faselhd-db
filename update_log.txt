@@ -2585,3 +2585,15 @@ Run: 2026-09-02T04:58:49Z
 Total new: 4 items across 1 sections
 Duration: 40s
 
+Run: 2026-09-02T09:28:57Z
+[movies         ] +2 -> new total
+[series         ] +0  -> skipped
+[anime          ] +0  -> skipped
+[asian-series   ] +0  -> skipped
+[asian-movies   ] +0  -> skipped
+[hindi          ] +0  -> skipped
+[anime-movies   ] +2 -> new total
+[tvshows        ] +0  -> skipped
+Total new: 4 items across 2 sections
+Duration: 59s
+
