@@ -37,14 +37,15 @@ def sql_escape(value):
     return "'" + str(value).replace("'", "''") + "'"
 
 
-def item_values(section, item):
-    return "(%s, %s, %s, %s, %s, %s)" % (
+def item_values(section, item, ord_expr):
+    return "(%s, %s, %s, %s, %s, %s, %s)" % (
         sql_escape(section),
         sql_escape(item.get("slug")),
         sql_escape(item.get("name")),
         sql_escape(item.get("img")),
         sql_escape(item.get("link")),
         sql_escape(item.get("added_at")),
+        ord_expr,
     )
 
 
@@ -78,7 +79,24 @@ def collect_items(full_mode):
     return sections
 
 
-def build_chunks(sections, tmp_dir):
+def query_min_ord(wrangler_cmd, section):
+    cmd = wrangler_cmd + [
+        "d1", "execute", DB_NAME,
+        "--remote", "-y", "--json",
+        "--command", "SELECT COALESCE(MIN(ord), 0) AS mn FROM items WHERE section_key = %s;" % sql_escape(section),
+    ]
+    result = subprocess.run(cmd, cwd=BASE_DIR, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    try:
+        start = result.stdout.find("[")
+        payload = json.loads(result.stdout[start:]) if start != -1 else None
+        if payload and payload[0].get("success"):
+            return int(payload[0]["results"][0]["mn"])
+    except Exception:
+        pass
+    return 0
+
+
+def build_chunks(sections, tmp_dir, full_mode, wrangler_cmd=None):
     chunk_paths = []
     buffer = []
 
@@ -101,12 +119,28 @@ def build_chunks(sections, tmp_dir):
         buffer = []
 
     for section, items in sections.items():
-        for item in items:
-            if not item.get("slug"):
-                continue
+        valid = [it for it in items if it.get("slug")]
+        total = len(valid)
+        counter = 0
+        if full_mode:
+            next_ord = 0
+        else:
+            current_min = query_min_ord(wrangler_cmd, section) if wrangler_cmd else 0
+            # Delta items are newest-first; the newest must get the smallest ord
+            # so it appears first under ORDER BY ord ASC. Older items in the batch
+            # get increasing ords, all still below the current front item.
+            next_ord = current_min - total
+        for item in valid:
+            counter += 1
+            if full_mode:
+                next_ord += 1
+                ord_expr = str(next_ord)
+            else:
+                ord_expr = str(next_ord)
+                next_ord += 1
             buffer.append(
-                "INSERT OR IGNORE INTO items (section_key, slug, name, img, link, added_at) "
-                "VALUES %s;" % item_values(section, item)
+                "INSERT OR IGNORE INTO items (section_key, slug, name, img, link, added_at, ord) "
+                "VALUES %s;" % item_values(section, item, ord_expr)
             )
             if len(buffer) >= STATEMENTS_PER_CHUNK:
                 flush()
@@ -159,7 +193,7 @@ def main():
     wrangler_cmd = find_wrangler()
     tmp_dir = tempfile.mkdtemp(prefix="d1push_")
     try:
-        chunk_paths = build_chunks(sections, tmp_dir)
+        chunk_paths = build_chunks(sections, tmp_dir, args.full, wrangler_cmd)
         if not chunk_paths:
             eprint("Nothing to push after filtering, exiting")
             return
