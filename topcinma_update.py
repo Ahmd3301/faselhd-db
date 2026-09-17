@@ -5,9 +5,11 @@ Sections (tc- namespace):
   REST movies : tc-movies-foreign (wp 3), tc-movies-asian (4), tc-anime-movies (5)
   HTML series : tc-series-foreign (7), tc-series-anime (8), tc-series-asian (9)
 
-Stored item shape is minimal — name + link only (plus pipeline mechanics):
-  {section_key, rank, slug, name, link, added_at}   # NO img, NO metadata
-slug is derived from link and is the dedup key (same contract as FaselHD).
+Stored item shape — name + link + poster (same contract as FaselHD):
+  {section_key, rank, slug, name, link, img, added_at}
+Poster sources (same as bot.js): REST _embedded wp:featuredmedia (cover.jpg
+filtered out) for movies, .Small--Box img data-src/src for series lists.
+slug is derived from link and is the dedup key.
 """
 import argparse
 import html as htmlmod
@@ -62,6 +64,12 @@ HTML_MAX_PAGES = 100     # delta mode cap (full mode: 300)
 
 def eprint(*args, **kwargs):
     print(*args, **kwargs, flush=True)
+
+
+def pick_poster(url):
+    """Poster URL or '' — drops placeholder cover.jpg (same rule as bot.js)."""
+    u = (url or "").strip()
+    return "" if (not u or "cover.jpg" in u) else u
 
 
 def clean_title(raw):
@@ -147,7 +155,7 @@ def save_delta(section, items):
 def fetch_rest_page(wp_id, page, per_page=REST_PER_PAGE):
     data, headers = rest_get("/posts", {
         "categories": wp_id, "per_page": per_page, "page": page,
-        "_embed": 0, "orderby": "date", "order": "desc",
+        "_embed": 1, "orderby": "date", "order": "desc",
     })
     if not data:
         return [], 0
@@ -158,7 +166,14 @@ def fetch_rest_page(wp_id, page, per_page=REST_PER_PAGE):
         link = str(post.get("link", "")).strip()
         if not slug or not name or not link:
             continue
-        items.append({"slug": slug, "name": name, "link": link})
+        poster = ""
+        try:
+            media = (post.get("_embedded", {}) or {}).get("wp:featuredmedia") or []
+            if media:
+                poster = pick_poster(media[0].get("source_url"))
+        except Exception:
+            poster = ""
+        items.append({"slug": slug, "name": name, "link": link, "img": poster})
     total_pages = 0
     for k in ("X-Wp-Totalpages", "x-wp-totalpages"):
         if k in headers:
@@ -185,8 +200,11 @@ def fetch_html_page(cat_slug, page_num):
         name = clean_title(" ".join(a.css("h3.title ::text").getall()).strip())
         if not slug or not name:
             continue
+        poster = pick_poster(
+            a.css("img::attr(data-src)").get()
+            or a.css("img::attr(src)").get() or "")
         link = href if href.startswith("http") else urljoin(SITE_BASES[0] + "/", href)
-        items.append({"slug": slug, "name": name, "link": link})
+        items.append({"slug": slug, "name": name, "link": link, "img": poster})
     total_pages = 1
     for txt in sel.css("ul.page-numbers a ::text").getall():
         try:

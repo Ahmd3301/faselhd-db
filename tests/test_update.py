@@ -307,6 +307,20 @@ class TestPhase2(unittest.TestCase):
         self.assertEqual(clean_title("فيلم Dune مترجم"), "Dune")
 
     # ----------------------------------------------------------------
+    # TEST 9b: pick_poster drops placeholders (bot.js cover.jpg rule)
+    # ----------------------------------------------------------------
+    def test_9b_topcinma_pick_poster(self):
+        try:
+            sys.path.insert(0, BASE_DIR)
+            from topcinma_update import pick_poster
+        except ImportError:
+            self.skipTest("parsel not installed")
+        self.assertEqual(pick_poster("https://x.com/p/abc.jpg"), "https://x.com/p/abc.jpg")
+        self.assertEqual(pick_poster("https://x.com/cover.jpg"), "")
+        self.assertEqual(pick_poster(""), "")
+        self.assertEqual(pick_poster(None), "")
+
+    # ----------------------------------------------------------------
     # TEST 10: Dual-source telegram report renders both blocks + total
     # ----------------------------------------------------------------
     def test_10_notify_dual_source(self):
