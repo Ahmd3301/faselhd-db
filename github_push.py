@@ -16,9 +16,15 @@ def git(*args, cwd=BASE_DIR):
     return subprocess.run(["git", *args], cwd=cwd, capture_output=True, text=True)
 
 
-def push_if_changed(sections, dry_run=False):
+def push_if_changed(sections, dry_run=False, root=None):
     git_email = os.environ.get("GIT_USER_EMAIL")
     git_name = os.environ.get("GIT_USER_NAME")
+
+    root = root or os.path.join(BASE_DIR, "output")
+    try:
+        rel_root = os.path.relpath(root, BASE_DIR)
+    except ValueError:
+        rel_root = root
 
     if dry_run:
         eprint("[DRY-RUN] Would configure git:")
@@ -35,7 +41,7 @@ def push_if_changed(sections, dry_run=False):
             eprint("[DRY-RUN] No sections changed, nothing to commit")
         return False
 
-    paths = [f"output/{s}.json" for s in sections] + ["update_log.txt"]
+    paths = [os.path.join(rel_root, f"{s}.json").replace(os.sep, "/") for s in sections] + ["update_log.txt"]
 
     if dry_run:
         eprint("[DRY-RUN] Would run:")
@@ -74,11 +80,15 @@ def push_if_changed(sections, dry_run=False):
 def main():
     parser = argparse.ArgumentParser(description="FaselHD -- git commit & push")
     parser.add_argument("--sections", type=str, default="", help="Comma-separated changed sections")
+    parser.add_argument("--root", type=str, default="", help="Output root dir holding the section JSON files")
     parser.add_argument("--dry-run", action="store_true", help="Print commands without running")
     args = parser.parse_args()
 
     sections = [s.strip() for s in args.sections.split(",") if s.strip()]
-    push_if_changed(sections, dry_run=args.dry_run)
+    root = args.root or None
+    if root and not os.path.isabs(root):
+        root = os.path.join(BASE_DIR, root)
+    push_if_changed(sections, dry_run=args.dry_run, root=root)
 
 
 if __name__ == "__main__":

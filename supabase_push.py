@@ -21,8 +21,11 @@ import sys
 from datetime import datetime, timezone
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-DELTA_DIR = os.path.join(OUTPUT_DIR, ".delta")
+# Source roots in scrape order (FaselHD first, then TopCinma).
+SOURCE_ROOTS = [
+    os.path.join(BASE_DIR, "output", "FaselHD"),
+    os.path.join(BASE_DIR, "output", "TopCinma"),
+]
 
 BATCH_SIZE = 1000
 
@@ -52,18 +55,25 @@ def load_section(path):
 
 
 def collect_items(full_mode):
+    """Collect {section: items} from every source root.
+
+    FULL: <root>/*.json ; DELTA: <root>/.delta/*.json (missing .delta = skip root).
+    TopCinma items carry name+link only — img defaults to "" (NOT NULL safe).
+    """
     sections = {}
-    src_dir = OUTPUT_DIR if full_mode else DELTA_DIR
-    if not full_mode and not os.path.isdir(src_dir):
-        return None
-    for fname in sorted(os.listdir(src_dir)):
-        if not fname.endswith(".json"):
+    for root in SOURCE_ROOTS:
+        src_dir = root if full_mode else os.path.join(root, ".delta")
+        if not os.path.isdir(src_dir):
             continue
-        data = load_section(os.path.join(src_dir, fname))
-        items = data.get("items") or []
-        key = data.get("section") or fname[:-5]
-        sections[key] = items
-    return sections
+        for fname in sorted(os.listdir(src_dir)):
+            if not fname.endswith(".json"):
+                continue
+            with open(os.path.join(src_dir, fname), "r", encoding="utf-8-sig") as f:
+                data = json.load(f)
+            items = data.get("items") or []
+            key = data.get("section") or fname[:-5]
+            sections.setdefault(key, []).extend(items)
+    return sections or None
 
 
 def query_min_ord(client, section):
@@ -83,7 +93,7 @@ def to_row(section, item, ord):
         "section_key": section,
         "slug": item.get("slug"),
         "name": item.get("name"),
-        "img": item.get("img"),
+        "img": item.get("img") or "",
         "link": item.get("link"),
         "ord": ord,
     }
@@ -168,9 +178,12 @@ def main():
     push_rows(client, all_rows)
     verify_counts(client, all_rows)
 
-    if not args.full and not args.keep_delta and os.path.isdir(DELTA_DIR):
+    if not args.full and not args.keep_delta:
         import shutil
-        shutil.rmtree(DELTA_DIR, ignore_errors=True)
+        for root in SOURCE_ROOTS:
+            delta = os.path.join(root, ".delta")
+            if os.path.isdir(delta):
+                shutil.rmtree(delta, ignore_errors=True)
         eprint("Delta files removed")
 
     counts = ",".join("%s=%d" % (k, len(v)) for k, v in all_rows.items())

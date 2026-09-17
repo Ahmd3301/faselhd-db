@@ -19,9 +19,11 @@ if _script_dir not in sys.path:
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+TEST_ROOT = os.path.join(BASE_DIR, "output", ".test-tmp")
 MOCK_URL = "http://localhost:8765"
-REAL_SECTION = "tvshows"  # small section for dry-run test against real site
-MOCK_SECTION = "series"  # section used for mock server tests
+REAL_SECTION = "fd-tvshows"  # small section for dry-run test against real site
+MOCK_SECTION = "fd-series"  # section used for mock server tests (site path: series)
+SITE_SECTION = "series"  # site path on fasel-hd.cam behind the fd- key
 
 
 def _start_mock():
@@ -30,23 +32,17 @@ def _start_mock():
 
 
 def _output_path(section):
-    return os.path.join(OUTPUT_DIR, f"{section}.json")
+    return os.path.join(TEST_ROOT, f"{section}.json")
 
 
 def _backup(section):
-    path = _output_path(section)
-    bak = path + ".bak"
-    if os.path.exists(path):
-        os.replace(path, bak)
-        return True
     return False
 
 
 def _restore(section):
     path = _output_path(section)
-    bak = path + ".bak"
-    if os.path.exists(bak):
-        os.replace(bak, path)
+    if os.path.exists(path):
+        os.remove(path)
 
 
 def _delete(section):
@@ -64,9 +60,11 @@ def _scrape_mock_to_file(section, output_path):
     tmp_path = tmp.name
     tmp.close()
 
+    # Spider works with site keys; fd- keys map back for the mock section.
+    spider_section = SITE_SECTION if section == MOCK_SECTION else section
     args = [
         sys.executable, "-m", "scrapy", "crawl", "faselhd_update",
-        "-a", f"section={section}",
+        "-a", f"section={spider_section}",
         "-a", f"max_pages=3",
         "-a", f"base_url={MOCK_URL}",
         "-o", tmp_path,
@@ -113,22 +111,29 @@ def _run_update(section, extra_args=None):
         sys.executable, "update.py",
         "--section", section,
         "--base-url", MOCK_URL,
+        "--root", TEST_ROOT,
     ]
     if extra_args:
         args.extend(extra_args)
-    result = subprocess.run(args, cwd=BASE_DIR, capture_output=True, text=True)
+    env = dict(os.environ, SKIP_GITHUB_PUSH="1")
+    result = subprocess.run(args, cwd=BASE_DIR, capture_output=True, text=True, env=env)
     return result
 
 
+def _site_section(section):
+    return SITE_SECTION if section == MOCK_SECTION else section
+
+
 def _admin_inject(section, count):
-    url = f"{MOCK_URL}/admin/inject?section={section}&count={count}"
+    url = f"{MOCK_URL}/admin/inject?section={_site_section(section)}&count={count}"
     req = Request(url, method="POST")
     resp = urlopen(req)
     return json.loads(resp.read())
 
 
 def _admin_reset(section=None):
-    qs = f"?section={section}" if section else ""
+    sec = _site_section(section) if section else None
+    qs = f"?section={sec}" if sec else ""
     url = f"{MOCK_URL}/admin/reset{qs}"
     req = Request(url, method="POST")
     urlopen(req)
@@ -164,7 +169,7 @@ class TestPhase2(unittest.TestCase):
     def test_1_mock_reachable(self):
         for attempt in range(10):
             try:
-                resp = urlopen(f"{MOCK_URL}/{MOCK_SECTION}/page/1", timeout=2)
+                resp = urlopen(f"{MOCK_URL}/{SITE_SECTION}/page/1", timeout=2)
                 break
             except Exception:
                 if attempt == 9:
@@ -180,7 +185,7 @@ class TestPhase2(unittest.TestCase):
     # ----------------------------------------------------------------
     def test_2_mock_404_last_page(self):
         try:
-            urlopen(f"{MOCK_URL}/{MOCK_SECTION}/page/4")
+            urlopen(f"{MOCK_URL}/{SITE_SECTION}/page/4")
             self.fail("Expected 404")
         except HTTPException as e:
             self.assertEqual(e.code, 404)
@@ -280,11 +285,52 @@ class TestPhase2(unittest.TestCase):
     # ----------------------------------------------------------------
     def test_8_github_push_dry_run(self):
         result = subprocess.run(
-            [sys.executable, "github_push.py", "--dry-run", "--sections", "series"],
+            [sys.executable, "github_push.py", "--dry-run",
+             "--root", "output/FaselHD", "--sections", "fd-series"],
             cwd=BASE_DIR, capture_output=True, text=True,
         )
         self.assertEqual(result.returncode, 0)
         self.assertIn("[DRY-RUN]", result.stdout)
+
+
+    # ----------------------------------------------------------------
+    # TEST 9: TopCinma clean_title (name-only, port of bot.js cleanTitle)
+    # ----------------------------------------------------------------
+    def test_9_topcinma_clean_title(self):
+        try:
+            sys.path.insert(0, BASE_DIR)
+            from topcinma_update import clean_title
+        except ImportError:
+            self.skipTest("parsel not installed")
+        self.assertEqual(clean_title("فيلم The Gorge مترجم اون لاين"), "The Gorge")
+        self.assertEqual(clean_title("<b>مسلسل</b> Silo الموسم الأول مترجمة"), "Silo الموسم الأول")
+        self.assertEqual(clean_title("فيلم Dune مترجم"), "Dune")
+
+    # ----------------------------------------------------------------
+    # TEST 10: Dual-source telegram report renders both blocks + total
+    # ----------------------------------------------------------------
+    def test_10_notify_dual_source(self):
+        sys.path.insert(0, BASE_DIR)
+        import telegram_notify as tn
+        blocks = {
+            "faselhd": {"run_time": "2026-09-17T14:46:56Z",
+                        "updated": [("fd-series", 4), ("fd-movies", 2)],
+                        "skipped": ["fd-anime"], "total_new": 6,
+                        "changed": 2, "duration": "48s",
+                        "failed": None, "full": False},
+            "topcinma": {"run_time": "2026-09-17T14:47:50Z",
+                         "updated": [("tc-movies-foreign", 3)],
+                         "skipped": ["tc-series-anime"], "total_new": 3,
+                         "changed": 1, "duration": "41s",
+                         "failed": None, "full": False},
+        }
+        msg = tn.build_message(2169, blocks)
+        self.assertIn("Auto Update Report #2169", msg)
+        self.assertIn("FaselHD", msg)
+        self.assertIn("TopCinma", msg)
+        self.assertIn("Total: +9 new", msg)
+        self.assertIn("fd-series", msg)
+        self.assertIn("tc-movies-foreign", msg)
 
 
 if __name__ == "__main__":

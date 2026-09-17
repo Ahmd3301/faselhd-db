@@ -15,13 +15,18 @@ from datetime import datetime, timezone
 import parsel
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+OUTPUT_DIR = os.path.join(BASE_DIR, "output", "FaselHD")
 DELTA_DIR = os.path.join(OUTPUT_DIR, ".delta")
 
+SOURCE_TAG = "faselhd"
+
 SECTIONS = [
-    "movies", "series", "anime", "asian-series",
-    "asian-movies", "hindi", "anime-movies", "tvshows",
+    "fd-movies", "fd-series", "fd-anime", "fd-asian-series",
+    "fd-asian-movies", "fd-hindi", "fd-anime-movies", "fd-tvshows",
 ]
+
+# fd- key -> site path on fasel-hd.cam (prefix stripped)
+SITE_PATHS = {s: s[3:] if s.startswith("fd-") else s for s in SECTIONS}
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
 
@@ -68,9 +73,13 @@ def _extract_slug(url):
     return decoded.rstrip("/").split("/")[-1]
 
 
+def site_path(section):
+    return SITE_PATHS.get(section, section)
+
+
 def fetch_page(section, page_num, base_url, retries=5):
     """Fetch one page via HTTP with exponential-backoff retry on 429."""
-    url = f"{base_url}/{section}/page/{page_num}"
+    url = f"{base_url}/{site_path(section)}/page/{page_num}"
     for attempt in range(1, retries + 1):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
@@ -149,8 +158,23 @@ def _run_spider(spider_name, section, max_pages, base_url, extra_settings=None):
 
 
 def _run_full_scrape(section, base_url):
-    items = _run_spider("faselhd", section, max_pages=9999, base_url=base_url,
+    # Spider works with site keys; pipeline writes output/<site>.json,
+    # then we move it to <root>/<fd-key>.json and rewrite key fields.
+    site = site_path(section)
+    items = _run_spider("faselhd", site, max_pages=9999, base_url=base_url,
                         extra_settings={"LOG_LEVEL": "ERROR"})
+    pipeline_path = os.path.join(BASE_DIR, "output", f"{site}.json")
+    if os.path.exists(pipeline_path):
+        try:
+            with open(pipeline_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            data["section"] = section
+            for it in data.get("items", []):
+                it["section_key"] = section
+            save_db(section, data)
+        finally:
+            if os.path.exists(pipeline_path):
+                os.remove(pipeline_path)
     return len(items)
 
 
@@ -222,7 +246,7 @@ def update_section(section, base_url, dry_run):
 
 def write_log(results, elapsed):
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    lines = [f"Run: {timestamp}"]
+    lines = [f"Run: {timestamp} [{SOURCE_TAG}]"]
     total_new = 0
     changed_sections = []
 
@@ -244,8 +268,8 @@ def write_log(results, elapsed):
         else:
             lines.append(f"[{sec:15s}] ERROR: {r.get('reason', 'unknown')}")
 
-    lines.append(f"Total new: {total_new} items across {len(changed_sections)} sections")
-    lines.append(f"Duration: {elapsed:.0f}s")
+    lines.append(f"Total new ({SOURCE_TAG}): {total_new} items across {len(changed_sections)} sections")
+    lines.append(f"Duration ({SOURCE_TAG}): {elapsed:.0f}s")
     lines.append("")
 
     log_path = os.path.join(BASE_DIR, "update_log.txt")
@@ -260,7 +284,13 @@ def main():
     parser.add_argument("--section", type=str, default=None, help="Single section only")
     parser.add_argument("--base-url", type=str, default=None, help="Override base URL (for testing)")
     parser.add_argument("--dry-run", action="store_true", help="Scrape and compare only, no writes")
+    parser.add_argument("--root", type=str, default=None, help="Output root dir (default: output/FaselHD)")
     args = parser.parse_args()
+
+    global OUTPUT_DIR, DELTA_DIR
+    if args.root:
+        OUTPUT_DIR = args.root if os.path.isabs(args.root) else os.path.join(BASE_DIR, args.root)
+        DELTA_DIR = os.path.join(OUTPUT_DIR, ".delta")
 
     base_url = args.base_url or "https://www.fasel-hd.cam"
     sections = [args.section] if args.section else SECTIONS
@@ -281,13 +311,20 @@ def main():
     elapsed = time.time() - start
 
     if not args.dry_run:
-        changed = write_log(results, elapsed)
-        if changed:
-            eprint(f"\n{len(changed)} sections changed -> committing via github_push.py")
-            subprocess.run(
-                [sys.executable, "github_push.py", "--sections", ",".join(changed)],
-                cwd=BASE_DIR,
-            )
+        try:
+            changed = write_log(results, elapsed)
+            if changed and not os.environ.get("SKIP_GITHUB_PUSH"):
+                eprint(f"\n{len(changed)} sections changed -> committing via github_push.py")
+                subprocess.run(
+                    [sys.executable, "github_push.py", "--root", OUTPUT_DIR,
+                     "--sections", ",".join(changed)],
+                    cwd=BASE_DIR,
+                )
+        except Exception as e:
+            with open(os.path.join(BASE_DIR, "update_log.txt"), "a", encoding="utf-8") as f:
+                f.write(f"Run: {datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')} "
+                        f"[{SOURCE_TAG}] FAILED: {e}\n\n")
+            raise
 
     eprint(f"\nDone in {elapsed:.0f}s")
 

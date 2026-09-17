@@ -2969,3 +2969,35 @@ Run: 2026-09-17T14:46:56Z
 Total new: 10 items across 5 sections
 Duration: 48s
 
+Run: 2026-09-17T17:28:28Z [faselhd]
+[fd-series      ] +0  -> skipped
+Total new (faselhd): 0 items across 0 sections
+Duration (faselhd): 2s
+
+Run: 2026-09-17T17:29:21Z [faselhd]
+[fd-series      ] +5 -> new total
+Total new (faselhd): 5 items across 1 sections
+Duration (faselhd): 2s
+
+Run: 2026-09-17T17:29:40Z [faselhd]
+[fd-series      ] +24 -> new total
+Total new (faselhd): 24 items across 1 sections
+Duration (faselhd): 5s
+
+Run: 2026-09-17T17:29:51Z [faselhd]
+[fd-series      ] +0  -> skipped
+Total new (faselhd): 0 items across 0 sections
+Duration (faselhd): 2s
+
+Run: 2026-09-17T17:52:14Z [topcinma]
+[tc-series-anime   ] full scrape -> 886 total
+Total new (topcinma): 886 items across 1 sections
+Duration (topcinma): 433s
+GRAND TOTAL: 886 new items | Faselhd 0 (2s) + TopCinma 886 (433s)
+
+Run: 2026-09-17T17:57:19Z [topcinma]
+[tc-series-asian   ] full scrape -> 1695 total
+Total new (topcinma): 1695 items across 1 sections
+Duration (topcinma): 296s
+GRAND TOTAL: 1695 new items | Faselhd 0 (2s) + TopCinma 1695 (296s)
+
