@@ -14,6 +14,7 @@ CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 SOURCES = [
     {"tag": "faselhd", "label": "FaselHD", "icon": "🎬"},
     {"tag": "topcinma", "label": "TopCinma", "icon": "🎞"},
+    {"tag": "ostora", "label": "Ostora", "icon": "🌙"},
 ]
 
 MONTHS_EN = {
@@ -56,7 +57,7 @@ def parse_blocks():
         if not m:
             continue
         run_time, tag = m.group(1), m.group(2)
-        if tag not in ("faselhd", "topcinma"):
+        if tag not in ("faselhd", "topcinma", "ostora"):
             tag = "faselhd"  # legacy untagged block
         if tag in found:
             continue
@@ -83,7 +84,7 @@ def parse_blocks():
             if "full scrape" in line:
                 info["full"] = True
         found[tag] = info
-        if len(found) == 2:
+        if len(found) == 3:
             break
     return found
 
@@ -123,25 +124,25 @@ def render_source(label, icon, info):
 
 
 def build_message(run_num, blocks):
-    fas = blocks.get("faselhd")
-    top = blocks.get("topcinma")
-    run_time = (fas or top or {}).get("run_time") or \
+    infos = {s["tag"]: blocks.get(s["tag"]) for s in SOURCES}
+    run_time = next((infos[s["tag"]].get("run_time") for s in SOURCES
+                     if infos[s["tag"]]), None) or \
         datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     lines = [f"<b>🔄 Auto Update Report #{run_num}</b>",
              f"🗓 {format_date(run_time)}",
              "<b>━━━━━━━━━━━━━━</b>"]
     for src in SOURCES:
-        lines.extend(render_source(src["label"], src["icon"], blocks.get(src["tag"])))
+        lines.extend(render_source(src["label"], src["icon"], infos[src["tag"]]))
         lines.append("<b>━━━━━━━━━━━━━━</b>")
-    total = sum((blocks.get(s["tag"]) or {}).get("total_new", 0) for s in SOURCES)
-    failed = [s["label"] for s in SOURCES
-              if (blocks.get(s["tag"]) or {}).get("failed")]
-    f_n = (fas or {}).get("total_new", 0)
-    t_n = (top or {}).get("total_new", 0)
-    durs = [f"⏱ {d}" for d in ((fas or {}).get("duration"), (top or {}).get("duration")) if d]
-    tail = f"📦 <b>Total: +{total} new</b> · FaselHD {f_n} + TopCinma {t_n}"
+    total = sum((infos[s["tag"]] or {}).get("total_new", 0) for s in SOURCES)
+    failed = [s["label"] for s in SOURCES if (infos[s["tag"]] or {}).get("failed")]
+    parts = " + ".join(
+        f"{s['label']} {(infos[s['tag']] or {}).get('total_new', 0)}" for s in SOURCES)
+    durs = " + ".join(
+        f"⏱ {d}" for d in ((infos[s["tag"]] or {}).get("duration") for s in SOURCES) if d)
+    tail = f"📦 <b>Total: +{total} new</b> · {parts}"
     if durs:
-        tail += f" · {' + '.join(durs)}"
+        tail += f" · {durs}"
     if failed:
         tail += f" · ⚠ partial ({', '.join(failed)} failed)"
     lines.append(tail)

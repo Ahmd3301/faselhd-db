@@ -1,0 +1,43 @@
+{
+  "section": "os-ar20-movies",
+  "scraped_at": "2026-09-18T17:52:11Z",
+  "total": 4,
+  "items": [
+    {
+      "section_key": "os-ar20-movies",
+      "rank": 1,
+      "slug": "11820",
+      "name": "قرمط بيتمرمط",
+      "link": "",
+      "img": "https://lh3.googleusercontent.com/-HYA9A9tkOfs/aKADV_ei3QI/AAAAAAAASgs/IZMO7GTd_3kVbbARtIhVP-f5mVxIBeQiACNcBGAsYHQ/w250/0.jpg=w250",
+      "added_at": "2026-09-18T17:52:11Z"
+    },
+    {
+      "section_key": "os-ar20-movies",
+      "rank": 2,
+      "slug": "29616",
+      "name": "بين الجنة والأرض",
+      "link": "",
+      "img": "https://lh3.googleusercontent.com/-CukC8s_Gxsk/aRrgbDDhl4I/AAAAAAAAVUE/IMK8Moqrx3sdByCDduANn7yf5UTu0oDhgCNcBGAsYHQ/w250/0.jpg=w250",
+      "added_at": "2026-09-18T17:52:11Z"
+    },
+    {
+      "section_key": "os-ar20-movies",
+      "rank": 3,
+      "slug": "7363",
+      "name": "بنات ثانوى",
+      "link": "",
+      "img": "https://lh3.googleusercontent.com/-DW2SstRQaWA/aJ_LyPLyHJI/AAAAAAAAM-s/3Ie4doNO_0clKAd0kRJxt4E3YfoHCT4kQCNcBGAsYHQ/w250/0.jpg=w250",
+      "added_at": "2026-09-18T17:52:11Z"
+    },
+    {
+      "section_key": "os-ar20-movies",
+      "rank": 4,
+      "slug": "29438",
+      "name": "رولم",
+      "link": "",
+      "img": "https://lh3.googleusercontent.com/-49k-kfpfW4Q/aRrg7pWh5NI/AAAAAAAAVao/YLgecMAwt6YEdAdGrzPwbT0yVyuQqlNKQCNcBGAsYHQ/w250/0.jpg=w250",
+      "added_at": "2026-09-18T17:52:11Z"
+    }
+  ]
+}

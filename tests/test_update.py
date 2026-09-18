@@ -347,5 +347,59 @@ class TestPhase2(unittest.TestCase):
         self.assertIn("tc-movies-foreign", msg)
 
 
+    # ----------------------------------------------------------------
+    # TEST 11: Ostora AES round-trip (no network — encrypt then decrypt)
+    # ----------------------------------------------------------------
+    def test_11_ostora_decrypt(self):
+        sys.path.insert(0, BASE_DIR)
+        import base64
+        import json as _json
+        from ostora_update import decrypt_aes, AES_KEY, AES_IV
+        from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+        payload = _json.dumps({"data": {"items": [{"id": 7}]}}).encode()
+        pad = 16 - len(payload) % 16
+        enc = Cipher(algorithms.AES(AES_KEY), modes.CBC(AES_IV)).encryptor()
+        blob = base64.b64encode(enc.update(payload + bytes([pad]) * pad) + enc.finalize()).decode()
+        out = decrypt_aes(blob)
+        self.assertEqual(out["data"]["items"][0]["id"], 7)
+
+    # ----------------------------------------------------------------
+    # TEST 12: Ostora set-diff keeps stored order under API reshuffle
+    # ----------------------------------------------------------------
+    def test_12_ostora_setdiff(self):
+        sys.path.insert(0, BASE_DIR)
+        from ostora_update import compute_new_order, reorder_drift
+        stored = ["1", "2", "3"]
+        fetched = ["3", "1", "9", "2", "8"]  # reshuffled + 2 brand-new
+        self.assertEqual(compute_new_order(stored, fetched), ["9", "8"])
+        pos = {s: i for i, s in enumerate(fetched)}
+        self.assertGreater(reorder_drift(stored, pos), 0.0)
+        self.assertEqual(reorder_drift(["1", "2"], {"1": 0, "2": 1}), 0.0)
+
+    # ----------------------------------------------------------------
+    # TEST 13: Triple-source report renders Ostora block + triple total
+    # ----------------------------------------------------------------
+    def test_13_notify_triple_source(self):
+        sys.path.insert(0, BASE_DIR)
+        import telegram_notify as tn
+        blocks = {
+            "faselhd": {"run_time": "2026-09-18T14:46:56Z", "updated": [("fd-series", 4)],
+                        "skipped": [], "total_new": 4, "changed": 1,
+                        "duration": "48s", "failed": None, "full": False},
+            "topcinma": {"run_time": "2026-09-18T14:47:50Z", "updated": [],
+                         "skipped": ["tc-series-anime"], "total_new": 0,
+                         "changed": 0, "duration": "41s", "failed": None, "full": False},
+            "ostora": {"run_time": "2026-09-18T14:48:10Z",
+                       "updated": [("os-rn-series", 3)], "skipped": ["os-ar-series"],
+                       "total_new": 3, "changed": 1, "duration": "12s",
+                       "failed": None, "full": False},
+        }
+        msg = tn.build_message(2175, blocks)
+        self.assertIn("Ostora", msg)
+        self.assertIn("os-rn-series", msg)
+        self.assertIn("Total: +7 new", msg)
+        self.assertIn("FaselHD 4 + TopCinma 0 + Ostora 3", msg)
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
