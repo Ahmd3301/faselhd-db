@@ -3108,3 +3108,14 @@ Run: 2026-09-19T17:51:21Z [faselhd]
 Total new (faselhd): 1 items across 1 sections
 Duration (faselhd): 43s
 
+Run: 2026-09-19T17:51:53Z [topcinma]
+[tc-movies-foreign ] +1 -> new total
+[tc-movies-asian   ] +0  -> skipped
+[tc-anime-movies   ] +0  -> skipped
+[tc-series-foreign ] +1 -> new total
+[tc-series-anime   ] +0  -> skipped
+[tc-series-asian   ] +0  -> skipped
+Total new (topcinma): 2 items across 2 sections
+Duration (topcinma): 30s
+GRAND TOTAL: 3 new items | Faselhd 1 (43s) + TopCinma 2 (30s)
+
