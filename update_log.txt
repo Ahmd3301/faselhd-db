@@ -3445,3 +3445,26 @@ Total new (ostora): 1 items across 1 sections
 Duration (ostora): 25s
 GRAND TOTAL: 1 new items | Faselhd 0 (35s) + TopCinma 0 (32s) + Ostora 1 (25s)
 
+Run: 2026-09-25T11:42:17Z [faselhd]
+[fd-movies      ] +0  -> skipped
+[fd-series      ] +0  -> skipped
+[fd-anime       ] +0  -> skipped
+[fd-asian-series] +0  -> skipped
+[fd-asian-movies] +0  -> skipped
+[fd-hindi       ] +0  -> skipped
+[fd-anime-movies] +0  -> skipped
+[fd-tvshows     ] +0  -> skipped
+Total new (faselhd): 0 items across 0 sections
+Duration (faselhd): 35s
+
+Run: 2026-09-25T11:42:49Z [topcinma]
+[tc-movies-foreign ] +1 -> new total
+[tc-movies-asian   ] +0  -> skipped
+[tc-anime-movies   ] +0  -> skipped
+[tc-series-foreign ] +1 -> new total
+[tc-series-anime   ] +0  -> skipped
+[tc-series-asian   ] +0  -> skipped
+Total new (topcinma): 2 items across 2 sections
+Duration (topcinma): 32s
+GRAND TOTAL: 2 new items | Faselhd 0 (35s) + TopCinma 2 (32s)
+
