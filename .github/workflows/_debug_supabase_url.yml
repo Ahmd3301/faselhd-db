@@ -1,0 +1,37 @@
+name: _debug_supabase_url
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dbg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Supabase host + key kind (no secret values)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os, urllib.parse as u
+          url = os.environ.get("SUPABASE_URL", "").strip()
+          p = u.urlparse(url)
+          print("SUPABASE_URL_PRESENT=", bool(url))
+          print("SUPABASE_HOST=", p.netloc)
+          print("PROJECT_REF=", p.netloc.split(".")[0])
+          k = (os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ.get("SUPABASE_SECRET_KEY") or "").strip()
+          print("KEY_PRESENT=", bool(k))
+          print("KEY_LEN=", len(k))
+          print("KEY_PREFIX=", k[:7])
+          if k.startswith("ey"):
+              import base64, json
+              part = k.split(".")[1]
+              part += "=" * (-len(part) % 4)
+              try:
+                  payload = json.loads(base64.urlsafe_b64decode(part))
+                  print("JWT_REF=", payload.get("ref"))
+                  print("JWT_ROLE=", payload.get("role"))
+              except Exception as e:
+                  print("JWT_DECODE_ERR=", str(e)[:80])
+          PY
