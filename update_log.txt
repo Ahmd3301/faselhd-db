@@ -4196,3 +4196,26 @@ Total new (topcinma): 6 items across 3 sections
 Duration (topcinma): 29s
 GRAND TOTAL: 6 new items | Faselhd 0 (35s) + TopCinma 6 (29s)
 
+Run: 2026-10-09T07:50:42Z [faselhd]
+[fd-movies      ] +0  -> skipped
+[fd-series      ] +0  -> skipped
+[fd-anime       ] +0  -> skipped
+[fd-asian-series] +0  -> skipped
+[fd-asian-movies] +0  -> skipped
+[fd-hindi       ] +0  -> skipped
+[fd-anime-movies] +0  -> skipped
+[fd-tvshows     ] +0  -> skipped
+Total new (faselhd): 0 items across 0 sections
+Duration (faselhd): 36s
+
+Run: 2026-10-09T07:51:18Z [topcinma]
+[tc-movies-foreign ] +1 -> new total
+[tc-movies-asian   ] +0  -> skipped
+[tc-anime-movies   ] +1 -> new total
+[tc-series-foreign ] +0  -> skipped
+[tc-series-anime   ] +0  -> skipped
+[tc-series-asian   ] +0  -> skipped
+Total new (topcinma): 2 items across 2 sections
+Duration (topcinma): 36s
+GRAND TOTAL: 2 new items | Faselhd 0 (36s) + TopCinma 2 (36s)
+
