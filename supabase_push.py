@@ -187,7 +187,8 @@ def main():
         "FULL" if args.full else "DELTA", len(sections), total))
 
     client = get_client()
-    all_rows = build_rows(sections, args.full, client)
+    include_posters = poster_columns_available(client)
+    all_rows = build_rows(sections, args.full, client, include_posters=include_posters)
     if not any(all_rows.values()):
         eprint("Nothing to push after filtering, exiting")
         return
