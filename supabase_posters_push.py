@@ -44,6 +44,17 @@ def is_poster_section(section):
     return section.startswith("tc-") or section.startswith("os-")
 
 
+def poster_columns_available(client):
+    try:
+        client.table("items").select("poster_cf").limit(1).execute()
+        return True
+    except Exception as e:  # noqa: BLE001
+        eprint("NOTE: poster_ws/poster_cf columns not found "
+               "(run supabase_posters_migration.sql). Skipping poster update.")
+        eprint(f"  ({str(e)[:140]})")
+        return False
+
+
 def collect_rows():
     rows = []
     for root in POSTER_ROOTS:
@@ -78,6 +89,8 @@ def main():
         return
     eprint(f"Updating {len(rows)} rows with poster_ws/poster_cf")
     client = get_client()
+    if not poster_columns_available(client):
+        return
     for i in range(0, len(rows), BATCH_SIZE):
         chunk = rows[i:i + BATCH_SIZE]
         try:
