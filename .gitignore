@@ -8,3 +8,5 @@ tests/.last_result
 *.db
 .wrangler/
 output/.delta/
+output/**/.delta/
+posters_stage_*/

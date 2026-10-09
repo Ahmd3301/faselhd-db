@@ -40,6 +40,14 @@ jobs:
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
           GIT_USER_NAME:  ${{ secrets.GIT_USER_NAME }}
 
+      - name: Host new TopCinma/Ostora posters on Cloudflare Pages
+        run: python poster_update.py
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+          GIT_USER_NAME:  ${{ secrets.GIT_USER_NAME }}
+
       - name: Push new items to Supabase (single-request batches)
         run: python supabase_push.py
         env:

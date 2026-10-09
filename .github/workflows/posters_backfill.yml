@@ -1,0 +1,75 @@
+name: Posters Backfill (Cloudflare Pages)
+
+# One-off / on-demand: host ALL existing TopCinma (tc-*) and Ostora (os-*)
+# posters on the Cloudflare Pages `imagecdn` project, then record the URLs in
+# Supabase (poster_ws / poster_cf). New posters are uploaded only; existing
+# assets are reused via the content-addressed manifest.
+
+on:
+  workflow_dispatch:
+    inputs:
+      sections:
+        description: "Comma list of sections (blank = all tc-/os-)"
+        required: false
+        default: ""
+      limit:
+        description: "Max items (0 = all; use for a small test run)"
+        required: false
+        default: "0"
+      workers:
+        description: "Download concurrency"
+        required: false
+        default: "16"
+      deploy:
+        description: "Create a Pages deployment when new assets are uploaded"
+        type: boolean
+        required: false
+        default: true
+      push:
+        description: "Commit manifest/JSON changes to the repo"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - name: Host posters on Cloudflare Pages
+        run: |
+          python poster_backfill.py \
+            --sections "${{ inputs.sections }}" \
+            --limit "${{ inputs.limit }}" \
+            --workers "${{ inputs.workers }}" \
+            ${{ inputs.deploy == false && '--no-deploy' || '' }} \
+            ${{ inputs.push == false && '--no-push' || '' }} \
+            --notify
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+          GIT_USER_NAME:  ${{ secrets.GIT_USER_NAME }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID:  ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      - name: Record poster URLs in Supabase
+        run: python supabase_posters_push.py
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}

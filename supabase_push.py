@@ -89,7 +89,7 @@ def query_min_ord(client, section):
     return int(rows[0]["ord"]) if rows else 0
 
 
-def to_row(section, item, ord):
+def to_row(section, item, ord, include_posters=False):
     row = {
         "section_key": section,
         "slug": item.get("slug"),
@@ -98,12 +98,27 @@ def to_row(section, item, ord):
         "link": item.get("link"),
         "ord": ord,
     }
+    if include_posters:
+        row["poster_ws"] = item.get("poster_ws") or item.get("img") or ""
+        row["poster_cf"] = item.get("poster_cf") or ""
     if item.get("added_at"):
         row["added_at"] = item.get("added_at")
     return row
 
 
-def build_rows(sections, full_mode, client):
+def poster_columns_available(client):
+    """True when poster_ws/poster_cf exist (migration applied)."""
+    try:
+        client.table("items").select("poster_cf").limit(1).execute()
+        return True
+    except Exception as e:  # noqa: BLE001
+        eprint("NOTE: poster_ws/poster_cf columns unavailable "
+               "(run supabase_posters_migration.sql); pushing without them. "
+               f"({str(e)[:120]})")
+        return False
+
+
+def build_rows(sections, full_mode, client, include_posters=False):
     all_rows = {}
     for section, items in sections.items():
         valid = [it for it in items if it.get("slug")]
@@ -117,7 +132,7 @@ def build_rows(sections, full_mode, client):
             next_ord = current_min - total
         rows = []
         for item in valid:
-            rows.append(to_row(section, item, next_ord))
+            rows.append(to_row(section, item, next_ord, include_posters))
             next_ord += 1
         all_rows[section] = rows
     return all_rows
