@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/_640x_616872efbefedd2250b84768b46f5e262cd62546133b5bb15a1d97be39650466.jpg",
       "added_at": "2026-10-10T00:14:44Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/_640x_616872efbefedd2250b84768b46f5e262cd62546133b5bb15a1d97be39650466.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/bf3f3331e984b08a09ad05aea14202f4.jpg"
     },
     {
       "slug": "فيلم-girl-in-the-coffin-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNWQ1NTJkMjEtNDUwMy00MjYwLTkzNDctOGFlYmIxMDkzYTM3XkEyXkFqcGc@.jpg",
       "added_at": "2026-10-10T00:14:44Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNWQ1NTJkMjEtNDUwMy00MjYwLTkzNDctOGFlYmIxMDkzYTM3XkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/9e9b03f6e33c85d3746c7db4b6ed0c3a.jpg"
     },
     {
       "slug": "فيلم-animals-2026-مترجم-اون-لاين",
