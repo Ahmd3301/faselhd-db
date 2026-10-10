@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNGQ3ZWEyMjUtM2IyNy00ODc5LTkwZTctNTBmMDQxNDliNWY1XkEyXkFqcGc@-389x550.jpg",
       "added_at": "2026-10-10T17:42:48Z",
       "section_key": "tc-series-anime",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNGQ3ZWEyMjUtM2IyNy00ODc5LTkwZTctNTBmMDQxNDliNWY1XkEyXkFqcGc@-389x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/727381c9cae536045f6965af6c53c8b6.jpg"
     },
     {
       "slug": "انمي-zi-jin-yu-miao-fang-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMzU0Yjk1MjItMzJhNi00NGVkLTkyNjEtNzkzNDkzYmMzYzc5XkEyXkFqcGc@-309x550.jpg",
       "added_at": "2026-10-10T17:42:48Z",
       "section_key": "tc-series-anime",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMzU0Yjk1MjItMzJhNi00NGVkLTkyNjEtNzkzNDkzYmMzYzc5XkEyXkFqcGc@-309x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/0f2c6acb40edf06f89f1defeeba669bf.jpg"
     },
     {
       "slug": "انمي-toaru-anbu-no-item-مترجم",
