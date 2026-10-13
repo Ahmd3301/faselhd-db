@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNDg4NTdjYmYtN2ZiNi00YWUwLWE4MzItMWU3ZTM3NTNiZTY5XkEyXkFqcGc@.jpg",
       "added_at": "2026-10-13T21:26:54Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNDg4NTdjYmYtN2ZiNi00YWUwLWE4MzItMWU3ZTM3NTNiZTY5XkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/0f4f90c6608111b9ec36d5ebdbff7812.jpg"
     },
     {
       "slug": "فيلم-the-sun-never-sets-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BYmM1N2EwOGMtOTdlOC00ZGY2LTkzNDEtZjFhYWY1NTBmOTM3XkEyXkFqcGc@.jpg",
       "added_at": "2026-10-13T21:26:54Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BYmM1N2EwOGMtOTdlOC00ZGY2LTkzNDEtZjFhYWY1NTBmOTM3XkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/47c8f9c53426025a476e5ab099b87681.jpg"
     },
     {
       "slug": "فيلم-lets-have-kids-2026-مترجم-اون-لاين",
@@ -28,7 +32,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BZDlhNTI1NmUtMDFmYS00YmE2LTkzNDEtYzZiMzg0NzhmMzhlXkEyXkFqcGc@.jpg",
       "added_at": "2026-10-13T21:26:54Z",
       "section_key": "tc-movies-foreign",
-      "rank": 3
+      "rank": 3,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BZDlhNTI1NmUtMDFmYS00YmE2LTkzNDEtYzZiMzg0NzhmMzhlXkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/880f022c42a5bf35eafa8fcf4862c318.jpg"
     },
     {
       "slug": "فيلم-buddy-2026-مترجم-اون-لاين",
