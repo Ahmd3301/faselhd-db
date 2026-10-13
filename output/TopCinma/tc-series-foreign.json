@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BZjk2OTZmOTgtY2E0NC00MDViLTg3NWYtNGQwMjZhNDJhNTNiXkEyXkFqcGc@-375x550.jpg",
       "added_at": "2026-10-13T16:18:27Z",
       "section_key": "tc-series-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BZjk2OTZmOTgtY2E0NC00MDViLTg3NWYtNGQwMjZhNDJhNTNiXkEyXkFqcGc@-375x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/6f64a3a17e58463fb847d827a9de7620.jpg"
     },
     {
       "slug": "مسلسل-the-trap-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNzYzYzEzMTYtNTgwOC00ODg3LWE0NzItMWVjMTVmMmY4OTdlXkEyXkFqcGc@-371x550.jpg",
       "added_at": "2026-10-13T16:18:27Z",
       "section_key": "tc-series-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNzYzYzEzMTYtNTgwOC00ODg3LWE0NzItMWVjMTVmMmY4OTdlXkEyXkFqcGc@-371x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/9f67da62649525afc0bfc6ccceaed962.jpg"
     },
     {
       "slug": "مسلسل-the-torment-مترجم",

@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMWRkNWJhNjYtY2FkZC00YjFlLWFjMjUtZGFhMjc5MGYyODE4XkEyXkFqcGc@-scaled.jpg",
       "added_at": "2026-10-13T16:18:02Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMWRkNWJhNjYtY2FkZC00YjFlLWFjMjUtZGFhMjc5MGYyODE4XkEyXkFqcGc@-scaled.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/89feed276169d96f37bb637af9c62632.jpg"
     },
     {
       "slug": "فيلم-the-florist-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMTQ2MzlkZWEtNmQ3MC00YWE5LWEwYTctZmU3MzJkYmU2OWQxXkEyXkFqcGc@.jpg",
       "added_at": "2026-10-13T16:18:02Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMTQ2MzlkZWEtNmQ3MC00YWE5LWEwYTctZmU3MzJkYmU2OWQxXkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/4319677ffef75a323efa3e5ba5d910a4.jpg"
     },
     {
       "slug": "فيلم-sacrifice-2025-مترجم-اون-لاين",
@@ -28,7 +32,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BY2FmMzhmNzQtMmVlNS00OGM1LTlhMzYtNmI2MDA0NjU3YWQ3XkEyXkFqcGc@.jpg",
       "added_at": "2026-10-13T16:18:02Z",
       "section_key": "tc-movies-foreign",
-      "rank": 3
+      "rank": 3,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BY2FmMzhmNzQtMmVlNS00OGM1LTlhMzYtNmI2MDA0NjU3YWQ3XkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/7a502ecc203e05d6acbd190215820733.jpg"
     },
     {
       "slug": "فيلم-the-incomer-2026-مترجم-اون-لاين",
