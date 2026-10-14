@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BYzBiYjg0NmYtYzAzYS00MWJiLWI3MjMtOGU0MmI4YTFkODM0XkEyXkFqcGc@.jpg",
       "added_at": "2026-10-14T15:56:57Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BYzBiYjg0NmYtYzAzYS00MWJiLWI3MjMtOGU0MmI4YTFkODM0XkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/20df13702d27cc7ff2894833bec0b41d.jpg"
     },
     {
       "slug": "فيلم-love-of-your-life-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNDZjM2Y5NWUtODhjMi00N2MwLWEwMTktZDUwNzg1Y2Y1OWNkXkEyXkFqcGc@-scaled.jpg",
       "added_at": "2026-10-14T15:56:57Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNDZjM2Y5NWUtODhjMi00N2MwLWEwMTktZDUwNzg1Y2Y1OWNkXkEyXkFqcGc@-scaled.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/671e2352c9529aeedc087a5a59f9c63e.jpg"
     },
     {
       "slug": "فيلم-dont-move-2026-مترجم-اون-لاين",

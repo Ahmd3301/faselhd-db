@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/gob5oouCFv74rO3MaVAm3hKqc7r-scaled-367x550.jpg",
       "added_at": "2026-10-14T15:57:21Z",
       "section_key": "tc-series-anime",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/gob5oouCFv74rO3MaVAm3hKqc7r-scaled-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/92050330e57838732db4e0c6a9b58eaf.jpg"
     },
     {
       "slug": "انمي-sekai-saikyou-no-majo-hajimemashita-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNDc0MzdjZDktZmQyMy00NzQ5LTg1MGItN2NiNzEwODUyMTU1XkEyXkFqcGc@-392x550.jpg",
       "added_at": "2026-10-14T15:57:21Z",
       "section_key": "tc-series-anime",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BNDc0MzdjZDktZmQyMy00NzQ5LTg1MGItN2NiNzEwODUyMTU1XkEyXkFqcGc@-392x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/9de3e16a6c4b987de39d1714c8eac1d6.jpg"
     },
     {
       "slug": "انمي-dark-machine-the-animation-مترجم",
