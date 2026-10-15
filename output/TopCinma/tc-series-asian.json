@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/1Kzj8rnCbGW9ggAJhMcK4dEM8Rt-367x550.jpg",
       "added_at": "2026-10-15T17:41:17Z",
       "section_key": "tc-series-asian",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/1Kzj8rnCbGW9ggAJhMcK4dEM8Rt-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/7b340415dbd75af2197c29891a7edb53.jpg"
     },
     {
       "slug": "مسلسل-make-me-tingle-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BOTc0MDcwNDYtYWQwOS00YmY0LWIxOTMtZWMxYjQwOTJmNDQ1XkEyXkFqcGc@-389x550.jpg",
       "added_at": "2026-10-15T17:41:17Z",
       "section_key": "tc-series-asian",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BOTc0MDcwNDYtYWQwOS00YmY0LWIxOTMtZWMxYjQwOTJmNDQ1XkEyXkFqcGc@-389x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/58af570912b7031e7871b2b159f578cc.jpg"
     },
     {
       "slug": "مسلسل-the-night-remains-مترجم",
