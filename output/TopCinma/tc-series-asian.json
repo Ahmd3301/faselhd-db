@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/dCMgK1cjEvKRbVin73c1ELgNceg-367x550.jpg",
       "added_at": "2026-10-15T21:07:15Z",
       "section_key": "tc-series-asian",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/dCMgK1cjEvKRbVin73c1ELgNceg-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/a0ccb621a36ee41e721eed639e19ce04.jpg"
     },
     {
       "slug": "مسلسل-light-the-dark-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/t69nmUrT8G4HQ452nLDzkZujEDj-367x550.jpg",
       "added_at": "2026-10-15T21:07:15Z",
       "section_key": "tc-series-asian",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/t69nmUrT8G4HQ452nLDzkZujEDj-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/815e097a1ae524d04a2092a3898816b7.jpg"
     },
     {
       "slug": "مسلسل-first-love-again-مترجم",
@@ -28,7 +32,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/fI1Z0lnf2K0fZFaXJqVIVqRmvnn-367x550.jpg",
       "added_at": "2026-10-15T21:07:15Z",
       "section_key": "tc-series-asian",
-      "rank": 3
+      "rank": 3,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/fI1Z0lnf2K0fZFaXJqVIVqRmvnn-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/e7bbc8c5b1340a7f20fe5606065e6d6c.jpg"
     },
     {
       "slug": "مسلسل-piece-of-safe-مترجم",
