@@ -10,7 +10,9 @@
       "img": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BZjQ5OWU1NjctMDZhYi00N2M3LWJhY2MtNTg4ZWQ5ZDEyNjk4XkEyXkFqcGc@.jpg",
       "added_at": "2026-10-17T17:28:30Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BZjQ5OWU1NjctMDZhYi00N2M3LWJhY2MtNTg4ZWQ5ZDEyNjk4XkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/8084efa36e97875b3e93da23ab3c153f.jpg"
     },
     {
       "slug": "فيلم-the-weight-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://web2.topcinema.io/wp-content/uploads/2026/09/_640x_ada1b014113db3beff7ded296c8f46e7ba65e9aa46f03a4554550a5d8f0374aa.jpg",
       "added_at": "2026-10-17T17:28:30Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web2.topcinema.io/wp-content/uploads/2026/09/_640x_ada1b014113db3beff7ded296c8f46e7ba65e9aa46f03a4554550a5d8f0374aa.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/7a5ee772bc57a9fbf3dab3d0c9bcc25b.jpg"
     },
     {
       "slug": "فيلم-the-social-reckoning-2026-مترجم-اون-لاين",
@@ -28,7 +32,9 @@
       "img": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BYjdlZTgzZDUtMmVjYy00M2EyLWFlNGMtNjVhYjM2ODNmZjEzXkEyXkFqcGc@.jpg",
       "added_at": "2026-10-17T17:28:30Z",
       "section_key": "tc-movies-foreign",
-      "rank": 3
+      "rank": 3,
+      "poster_ws": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BYjdlZTgzZDUtMmVjYy00M2EyLWFlNGMtNjVhYjM2ODNmZjEzXkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/89d74c42c0e9546e4e33d62fac519136.jpg"
     },
     {
       "slug": "فيلم-the-influencer-project-2026-مترجم-اون-لاين",
@@ -37,7 +43,9 @@
       "img": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BMGU1NGU3N2ItZjBmNi00MDYxLTgyMTQtYzc0OWVkNjZjZTNiXkEyXkFqcGc@.jpg",
       "added_at": "2026-10-17T17:28:30Z",
       "section_key": "tc-movies-foreign",
-      "rank": 4
+      "rank": 4,
+      "poster_ws": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BMGU1NGU3N2ItZjBmNi00MDYxLTgyMTQtYzc0OWVkNjZjZTNiXkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/b327c0e4266e575cbeb1fa6fa5fdb70d.jpg"
     },
     {
       "slug": "فيلم-primetime-2026-مترجم-اون-لاين",
@@ -46,7 +54,9 @@
       "img": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BMTcyZGI2NWQtOTU3NS00NTEyLTliNDItNTQyNmFkMGZmZGQzXkEyXkFqcGc@-scaled.jpg",
       "added_at": "2026-10-17T17:28:30Z",
       "section_key": "tc-movies-foreign",
-      "rank": 5
+      "rank": 5,
+      "poster_ws": "https://web2.topcinema.io/wp-content/uploads/2026/10/MV5BMTcyZGI2NWQtOTU3NS00NTEyLTliNDItNTQyNmFkMGZmZGQzXkEyXkFqcGc@-scaled.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/9e6d9b9bd791b67dd7618ffc1fb74e81.jpg"
     },
     {
       "slug": "فيلم-crawlers-2026-مترجم-اون-لاين",
