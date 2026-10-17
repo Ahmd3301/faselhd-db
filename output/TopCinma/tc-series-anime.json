@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMWQ3NGFlZjgtMzJkOC00ZmQ1LTk4NjktNzJkMTZmMDQ3NmE0XkEyXkFqcGc@._V1_FMjpg_UX480_-367x550.jpg",
       "added_at": "2026-10-17T06:03:27Z",
       "section_key": "tc-series-anime",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BMWQ3NGFlZjgtMzJkOC00ZmQ1LTk4NjktNzJkMTZmMDQ3NmE0XkEyXkFqcGc@._V1_FMjpg_UX480_-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/bfc5928f678e8792e19807261d49844b.jpg"
     },
     {
       "slug": "انمي-shuiro-no-kamen-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/jIQ8cnTs7sCMzEfBviyyD4eXMiY-scaled-389x550.jpg",
       "added_at": "2026-10-17T06:03:27Z",
       "section_key": "tc-series-anime",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/jIQ8cnTs7sCMzEfBviyyD4eXMiY-scaled-389x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/cd9e61853709bcdc7296570a2b91573d.jpg"
     },
     {
       "slug": "انمي-tantei-wa-mou-shindeiru-مترجم",

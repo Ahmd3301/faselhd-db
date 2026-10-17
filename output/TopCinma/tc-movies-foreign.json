@@ -10,7 +10,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BYjQzNTk0OTUtNGIxMy00YzNmLTk4MTMtOWNhNGIxMDgyZTA1XkEyXkFqcGc@-scaled.jpg",
       "added_at": "2026-10-17T06:03:05Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BYjQzNTk0OTUtNGIxMy00YzNmLTk4MTMtOWNhNGIxMDgyZTA1XkEyXkFqcGc@-scaled.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/330abf9100f5cd685dff928bd70075fc.jpg"
     },
     {
       "slug": "فيلم-adored-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BZDQwMjlmMGEtNGZiMy00NjZlLWIzYWEtYTQ3OWY3ZmIyMmQxXkEyXkFqcGc@.jpg",
       "added_at": "2026-10-17T06:03:05Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://web.topcinema.io/wp-content/uploads/2026/10/MV5BZDQwMjlmMGEtNGZiMy00NjZlLWIzYWEtYTQ3OWY3ZmIyMmQxXkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/b4cbc7614670ee8c6fca10d7d4780abb.jpg"
     },
     {
       "slug": "فيلم-masterplan-2026-مترجم-اون-لاين",
