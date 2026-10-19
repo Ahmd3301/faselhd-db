@@ -4939,3 +4939,18 @@ Total new (topcinma): 4 items across 1 sections
 Duration (topcinma): 35s
 GRAND TOTAL: 4 new items | Faselhd 0 (35s) + TopCinma 4 (35s)
 
+Run: 2026-10-19T17:07:32Z [ostora]
+[os-ar-series      ] +1 -> new total (drift 0%)
+[os-rn-series      ] +0  -> skipped (drift 0%)
+[os-arall-movies   ] +0  -> skipped (drift 0%)
+[os-ar26-movies    ] +0  -> skipped (drift 0%)
+[os-ar25-movies    ] +0  -> skipped (drift 0%)
+[os-ar24-movies    ] +0  -> skipped (drift 0%)
+[os-ar23-movies    ] +0  -> skipped (drift 0%)
+[os-ar22-movies    ] +0  -> skipped (drift 0%)
+[os-ar21-movies    ] +0  -> skipped (drift 0%)
+[os-ar20-movies    ] +0  -> skipped (drift 0%)
+Total new (ostora): 1 items across 1 sections
+Duration (ostora): 32s
+GRAND TOTAL: 5 new items | Faselhd 0 (35s) + TopCinma 4 (35s) + Ostora 1 (32s)
+
