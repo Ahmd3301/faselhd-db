@@ -10,7 +10,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/MV5BMDc1NGFkY2UtMjY0Zi00N2IyLWI3MDgtOTUxOTVlZDJkYjk2XkEyXkFqcGc@-440x550.jpg",
       "added_at": "2026-10-22T19:51:14Z",
       "section_key": "tc-series-asian",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/MV5BMDc1NGFkY2UtMjY0Zi00N2IyLWI3MDgtOTUxOTVlZDJkYjk2XkEyXkFqcGc@-440x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/d15207769a121967b06842a6da622fff.jpg"
     },
     {
       "slug": "مسلسل-addicted-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/MV5BNDYxNTg4ZDAtZDlhOC00MThkLTkyMjUtNzliNDU3ZTM0OGI2XkEyXkFqcGc@-389x550.jpg",
       "added_at": "2026-10-22T19:51:14Z",
       "section_key": "tc-series-asian",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/MV5BNDYxNTg4ZDAtZDlhOC00MThkLTkyMjUtNzliNDU3ZTM0OGI2XkEyXkFqcGc@-389x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/4597634e2f5edc3365fe2a0a0409edfc.jpg"
     },
     {
       "slug": "مسلسل-small-town-remedy-مترجم",
@@ -28,7 +32,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/yXlDXC1dPDoVAGWOk0Pb25zggqE-367x550.jpg",
       "added_at": "2026-10-22T19:51:14Z",
       "section_key": "tc-series-asian",
-      "rank": 3
+      "rank": 3,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/yXlDXC1dPDoVAGWOk0Pb25zggqE-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/6a7dfc22592997d082ff759cd0db4b31.jpg"
     },
     {
       "slug": "مسلسل-my-loong-مترجم",
@@ -37,7 +43,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/jfM4j2hQozZeeSikl96AMBgnFSg-367x550.jpg",
       "added_at": "2026-10-22T19:51:14Z",
       "section_key": "tc-series-asian",
-      "rank": 4
+      "rank": 4,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/jfM4j2hQozZeeSikl96AMBgnFSg-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/e9b65829800b8c9fd57180e8e158cbc5.jpg"
     },
     {
       "slug": "مسلسل-irohas-love-runs-across-eras-مترجم",
