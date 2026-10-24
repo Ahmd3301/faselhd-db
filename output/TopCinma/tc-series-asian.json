@@ -10,7 +10,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/ykn6UIwS14EGd7na3UXuOvNU5WS-367x550.jpg",
       "added_at": "2026-10-24T13:30:52Z",
       "section_key": "tc-series-asian",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/ykn6UIwS14EGd7na3UXuOvNU5WS-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/0978d1a45cbd4bd80089cfe2e2f7c3c5.jpg"
     },
     {
       "slug": "مسلسل-a-calm-sea-and-beautiful-days-with-you-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/ezeiBiWAGoMGPNJl8POCUa9gJuj-367x550.jpg",
       "added_at": "2026-10-24T13:30:52Z",
       "section_key": "tc-series-asian",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/ezeiBiWAGoMGPNJl8POCUa9gJuj-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/8b195e2632fa580877d727d601adb1b2.jpg"
     },
     {
       "slug": "مسلسل-tigers-sniff-the-rose-مترجم",
