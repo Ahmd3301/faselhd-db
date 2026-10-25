@@ -10,7 +10,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/MV5BOTA5NWIxODktNjcwOC00MjNjLWE1ZDctNWNmODkzYzc2Y2RhXkEyXkFqcGc@.jpg",
       "added_at": "2026-10-25T14:30:54Z",
       "section_key": "tc-movies-foreign",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/MV5BOTA5NWIxODktNjcwOC00MjNjLWE1ZDctNWNmODkzYzc2Y2RhXkEyXkFqcGc@.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/a6093c8fc137838a573e21a2a0f04562.jpg"
     },
     {
       "slug": "فيلم-written-in-blood-2026-مترجم-اون-لاين",
@@ -19,7 +21,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/MV5BNzIzNzZkM2MtMjNiYi00NDllLWFhMjItNjFkZjA4MjMyOTUxXkEyXkFqcGc@-scaled.jpg",
       "added_at": "2026-10-25T14:30:54Z",
       "section_key": "tc-movies-foreign",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/MV5BNzIzNzZkM2MtMjNiYi00NDllLWFhMjItNjFkZjA4MjMyOTUxXkEyXkFqcGc@-scaled.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/49c743f63c1a8cdf317dac2ff1c7e6a0.jpg"
     },
     {
       "slug": "فيلم-thingy-2026-مترجم-اون-لاين",
