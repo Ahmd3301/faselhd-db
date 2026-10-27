@@ -10,7 +10,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/s2zaOYysTP8UWt8vCZ3HfNudh0m-scaled-367x550.jpg",
       "added_at": "2026-10-27T16:17:27Z",
       "section_key": "tc-series-asian",
-      "rank": 1
+      "rank": 1,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/s2zaOYysTP8UWt8vCZ3HfNudh0m-scaled-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/ba81e0fa9ed1b88c2528351d583c8e19.jpg"
     },
     {
       "slug": "مسلسل-mystery-forest-مترجم",
@@ -19,7 +21,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/bPrwPDVoJOoLB02Tp8U8qZeKjaC-367x550.jpg",
       "added_at": "2026-10-27T16:17:27Z",
       "section_key": "tc-series-asian",
-      "rank": 2
+      "rank": 2,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/bPrwPDVoJOoLB02Tp8U8qZeKjaC-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/36b3804c568c3328195b03888977e2af.jpg"
     },
     {
       "slug": "مسلسل-big-brother-is-my-god-مترجم",
@@ -28,7 +32,9 @@
       "img": "https://topcinema.film/wp-content/uploads/2026/10/8BduEQ4rNp4IAmAHNBSELnjdnuy-367x550.jpg",
       "added_at": "2026-10-27T16:17:27Z",
       "section_key": "tc-series-asian",
-      "rank": 3
+      "rank": 3,
+      "poster_ws": "https://topcinema.film/wp-content/uploads/2026/10/8BduEQ4rNp4IAmAHNBSELnjdnuy-367x550.jpg",
+      "poster_cf": "https://imagecdn-agu.pages.dev/tc/1fc1a4f95fceff9425022dcefc6ccda2.jpg"
     },
     {
       "slug": "مسلسل-borders-keishicho-tokushu-jiken-taisaku-han-مترجم",
