@@ -21,11 +21,12 @@ import sys
 from datetime import datetime, timezone
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# Source roots in scrape order (FaselHD, TopCinma, then Ostora).
+# Source roots in scrape order (FaselHD, TopCinma, Ostora, Krmzy).
 SOURCE_ROOTS = [
     os.path.join(BASE_DIR, "output", "FaselHD"),
     os.path.join(BASE_DIR, "output", "TopCinma"),
     os.path.join(BASE_DIR, "output", "Ostora"),
+    os.path.join(BASE_DIR, "output", "Krmzy"),
 ]
 
 BATCH_SIZE = 1000

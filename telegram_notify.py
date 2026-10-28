@@ -15,6 +15,7 @@ SOURCES = [
     {"tag": "faselhd", "label": "FaselHD", "icon": "🎬"},
     {"tag": "topcinma", "label": "TopCinma", "icon": "🎞"},
     {"tag": "ostora", "label": "Ostora", "icon": "🌙"},
+    {"tag": "krmzy", "label": "Krmzy", "icon": "🇹🇷"},
 ]
 
 MONTHS_EN = {
@@ -57,7 +58,7 @@ def parse_blocks():
         if not m:
             continue
         run_time, tag = m.group(1), m.group(2)
-        if tag not in ("faselhd", "topcinma", "ostora"):
+        if tag not in ("faselhd", "topcinma", "ostora", "krmzy"):
             tag = "faselhd"  # legacy untagged block
         if tag in found:
             continue
@@ -84,7 +85,7 @@ def parse_blocks():
             if "full scrape" in line:
                 info["full"] = True
         found[tag] = info
-        if len(found) == 3:
+        if len(found) == 4:
             break
     return found
 

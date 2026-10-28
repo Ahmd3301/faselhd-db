@@ -131,5 +131,6 @@ insert into public.sections (key, name) values
   ('os-ar23-movies',     '🌙 [OS] افلام عربية 23'),
   ('os-ar22-movies',     '🌙 [OS] افلام عربية 22'),
   ('os-ar21-movies',     '🌙 [OS] افلام عربية 21'),
-  ('os-ar20-movies',     '🌙 [OS] افلام عربية 20')
+  ('os-ar20-movies',     '🌙 [OS] افلام عربية 20'),
+  ('kr-series',          '🇹🇷 [KR] مسلسلات تركية')
 on conflict (key) do update set name = excluded.name;
