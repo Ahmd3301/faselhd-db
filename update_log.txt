@@ -5482,3 +5482,24 @@ Total new (topcinma): 4 items across 3 sections
 Duration (topcinma): 36s
 GRAND TOTAL: 4 new items | Faselhd 0 (33s) + TopCinma 4 (36s)
 
+Run: 2026-10-28T17:11:22Z [ostora]
+[os-ar-series      ] +0  -> skipped (drift 1%)
+[os-rn-series      ] +0  -> skipped (drift 0%)
+[os-arall-movies   ] +0  -> skipped (drift 0%)
+[os-ar26-movies    ] +0  -> skipped (drift 0%)
+[os-ar25-movies    ] +0  -> skipped (drift 0%)
+[os-ar24-movies    ] +0  -> skipped (drift 0%)
+[os-ar23-movies    ] +0  -> skipped (drift 0%)
+[os-ar22-movies    ] +0  -> skipped (drift 0%)
+[os-ar21-movies    ] +0  -> skipped (drift 0%)
+[os-ar20-movies    ] +0  -> skipped (drift 0%)
+Total new (ostora): 0 items across 0 sections
+Duration (ostora): 24s
+GRAND TOTAL: 4 new items | Faselhd 0 (33s) + TopCinma 4 (36s) + Ostora 0 (24s)
+
+Run: 2026-10-28T17:11:25Z [krmzy]
+[kr-series         ] full scrape -> 192 total
+Total new (krmzy): 192 items across 1 sections
+Duration (krmzy): 3s
+GRAND TOTAL: 196 new items | Faselhd 0 (33s) + TopCinma 4 (36s) + Ostora 0 (24s) + Krmzy 192 (3s)
+
