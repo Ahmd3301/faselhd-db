@@ -53,6 +53,18 @@ jobs:
           sudo apt-get update -qq
           sudo apt-get install -y -qq xvfb
 
+      - name: DNS / reachability probe (Cloudflare challenge hosts)
+        if: always()
+        run: |
+          for h in challenges.cloudflare.com brunhild.challenges.cloudflare.com \
+                   hagen.challenges.cloudflare.com www.fasel-hd.co; do
+            echo "== $h"
+            getent hosts "$h" || echo "  getent: NOT RESOLVED"
+            dig +short "$h" 2>/dev/null || true
+            curl -s -o /dev/null -w "  curl status=%{http_code} ip=%{remote_ip}\n" \
+              --max-time 15 "https://$h/" || echo "  curl failed"
+          done
+
       - name: Run bypass verification (headed under xvfb)
         env:
           CF_TARGET: ${{ github.event.inputs.target || 'https://www.fasel-hd.cam/' }}
