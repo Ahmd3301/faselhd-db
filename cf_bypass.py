@@ -175,16 +175,22 @@ def _dump_diag(page, solved, netlog, console):
         info.update(page.evaluate("""() => {
             const f = document.querySelector('iframe[src*="challenges.cloudflare.com"]');
             const r = f ? f.getBoundingClientRect() : null;
+            const tok = document.querySelector('input[name="cf-turnstile-response"]');
             return {
                 url: location.href,
                 title: document.title,
                 hasTurnstileIframe: !!f,
+                turnstileIframes: document.querySelectorAll('iframe').length,
                 turnstileVisible: !!(r && r.width > 0 && r.height > 0),
+                turnstileRect: r ? [r.x, r.y, r.width, r.height] : null,
+                tokenLen: tok ? (tok.value || '').length : null,
                 hasCfOpt: typeof window._cf_chl_opt !== 'undefined',
                 cType: (window._cf_chl_opt && window._cf_chl_opt.cType) || null,
+                visibility: document.visibilityState,
                 bodyText: (document.body ? document.body.innerText : '').slice(0, 400),
             };
         }"""))
+        info["cookie_names"] = [c["name"] for c in context.cookies()]
     except Exception as e:  # noqa: BLE001
         info["eval_error"] = str(e)
     try:
@@ -243,6 +249,9 @@ def solve(base_url, timeout=None, headless=None, channel=None):
     rules = os.environ.get("FASELHD_HOST_RULES", "").strip()
     if rules:
         extra_args.append("--host-resolver-rules=" + rules)
+    extra = os.environ.get("FASELHD_EXTRA_ARGS", "").strip()
+    if extra:
+        extra_args += extra.split()
     if extra_args:
         launch_opts["args"] = extra_args
     proxy = _proxy()

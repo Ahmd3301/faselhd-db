@@ -73,6 +73,7 @@ jobs:
           CF_SOLVE_TIMEOUT: '120'
           CF_DIAG_DIR: diag
           FASELHD_HOST_RULES: 'MAP brunhild.challenges.cloudflare.com 104.18.17.146, MAP hagen.challenges.cloudflare.com 104.18.8.208'
+          FASELHD_EXTRA_ARGS: '--lang=en-US --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader'
         run: |
           set -o pipefail
           xvfb-run -a --server-args="-screen 0 1280x900x24" \
