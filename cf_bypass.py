@@ -176,9 +176,22 @@ def _dump_diag(page, solved, netlog, console):
             const f = document.querySelector('iframe[src*="challenges.cloudflare.com"]');
             const r = f ? f.getBoundingClientRect() : null;
             const tok = document.querySelector('input[name="cf-turnstile-response"]');
+            let webgl = false, glVendor = null;
+            try {
+                const c = document.createElement('canvas');
+                const gl = c.getContext('webgl2') || c.getContext('webgl');
+                webgl = !!gl;
+                if (gl) {
+                    const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+                    glVendor = dbg ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)
+                                   : gl.getParameter(gl.RENDERER);
+                }
+            } catch (e) { webgl = 'error:' + e; }
             return {
                 url: location.href,
                 title: document.title,
+                webgl: webgl,
+                glVendor: glVendor,
                 hasTurnstileIframe: !!f,
                 turnstileIframes: document.querySelectorAll('iframe').length,
                 turnstileVisible: !!(r && r.width > 0 && r.height > 0),
