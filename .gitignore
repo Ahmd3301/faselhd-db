@@ -10,3 +10,5 @@ tests/.last_result
 output/.delta/
 output/**/.delta/
 posters_stage_*/
+diag/
+diag-local/

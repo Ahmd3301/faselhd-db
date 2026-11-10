@@ -87,6 +87,82 @@ def looks_like_challenge(status, body, title=""):
     return any(m in body for m in CHALLENGE_BODY_MARKERS)
 
 
+def _diag_dir():
+    d = os.environ.get("CF_DIAG_DIR")
+    if not d:
+        return None
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
+def _dump_diag(page, context, solved):
+    """Save screenshot + DOM + challenge details so CI failures are debuggable."""
+    d = _diag_dir()
+    if not d:
+        return {}
+    info = {"solved": solved}
+    try:
+        page.screenshot(path=os.path.join(d, "challenge.png"), full_page=True)
+    except Exception as e:  # noqa: BLE001
+        info["screenshot_error"] = str(e)
+    try:
+        html = page.content()
+        with open(os.path.join(d, "challenge.html"), "w", encoding="utf-8") as f:
+            f.write(html)
+        info["html_len"] = len(html)
+    except Exception as e:  # noqa: BLE001
+        info["html_error"] = str(e)
+    try:
+        info.update(page.evaluate("""() => {
+            const ts = document.querySelector('iframe[src*="challenges.cloudflare.com"]');
+            const box = ts ? ts.getBoundingClientRect() : null;
+            return {
+                url: location.href,
+                title: document.title,
+                hasTurnstileIframe: !!ts,
+                turnstileVisible: !!(box && box.width > 0 && box.height > 0),
+                hasCfOpt: typeof window._cf_chl_opt !== 'undefined',
+                cType: (window._cf_chl_opt && window._cf_chl_opt.cType) || null,
+                bodyText: (document.body ? document.body.innerText : '').slice(0, 400),
+            };
+        }"""))
+    except Exception as e:  # noqa: BLE001
+        info["eval_error"] = str(e)
+    try:
+        import json as _json
+        with open(os.path.join(d, "diag.json"), "w", encoding="utf-8") as f:
+            _json.dump(info, f, ensure_ascii=False, indent=2)
+    except Exception:  # noqa: BLE001
+        pass
+    return info
+
+
+def _turnstile_box(page):
+    try:
+        return page.evaluate("""() => {
+            const f = document.querySelector('iframe[src*="challenges.cloudflare.com"]');
+            if (!f) return null;
+            const r = f.getBoundingClientRect();
+            if (!r || r.width <= 0 || r.height <= 0) return null;
+            return {x: r.x, y: r.y, w: r.width, h: r.height};
+        }""")
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _try_click_turnstile(page):
+    """Managed challenges with a visible checkbox need a real click."""
+    box = _turnstile_box(page)
+    if not box:
+        return False
+    try:
+        # checkbox sits at the left side of the widget, vertically centred
+        page.mouse.click(box["x"] + 30, box["y"] + box["h"] / 2)
+        return True
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def solve_challenge():
     """Open the site in a real browser and wait for Cloudflare to issue clearance."""
     from patchright.sync_api import sync_playwright
@@ -105,6 +181,8 @@ def solve_challenge():
         deadline = time.time() + SOLVE_TIMEOUT
         title = ""
         final_title = ""
+        clicks = 0
+        last_click = 0.0
         while time.time() < deadline:
             # Redirects (.cam -> .co) and challenge reloads destroy the JS context;
             # treat that as "still navigating" instead of a hard failure.
@@ -134,6 +212,13 @@ def solve_challenge():
             if not still_challenging:
                 final_title = title
                 break
+            if time.time() - t0 > 6 and clicks < 3 and (time.time() - last_click) > 8:
+                if _try_click_turnstile(page):
+                    clicks += 1
+                    last_click = time.time()
+                    print("      (clicked Turnstile checkbox)", flush=True)
+                    time.sleep(2.5)
+                    continue
             time.sleep(1.5)
 
         try:
@@ -146,6 +231,9 @@ def solve_challenge():
             final_url = page.url or TARGET
             ua = page.evaluate("navigator.userAgent")
         cookies = context.cookies()
+        _solved = any(c["name"] == "cf_clearance" for c in cookies) and not \
+            CHALLENGE_TITLE_RE.search(final_title)
+        diag = _dump_diag(page, context, _solved)
         page.close()
         context.close()
         browser.close()
@@ -153,7 +241,8 @@ def solve_challenge():
     elapsed = round(time.time() - t0, 1)
     clearance = [c for c in cookies if c["name"] == "cf_clearance"]
     return {
-        "solved": bool(clearance) and not CHALLENGE_TITLE_RE.search(final_title),
+        "solved": _solved,
+        "diag": diag,
         "title": final_title,
         "final_url": final_url,
         "user_agent": ua,
@@ -232,10 +321,21 @@ def main():
         "user_agent": solved["user_agent"],
         "channel": solved["channel"],
         "headless": solved["headless"],
+        "diag": {k: v for k, v in (solved.get("diag") or {}).items()
+                 if k not in ("bodyText",)},
+        "diag_body_text": (solved.get("diag") or {}).get("bodyText"),
     }
     print(f"      solved={solved['solved']} title={solved['title']!r}", flush=True)
     if not solved["solved"]:
         report["ok"] = False
+        d = solved.get("diag") or {}
+        print(
+            f"      diag: url={d.get('url')!r} cType={d.get('cType')!r} "
+            f"turnstile_iframe={d.get('hasTurnstileIframe')} "
+            f"turnstile_visible={d.get('turnstileVisible')}",
+            flush=True,
+        )
+        print(f"      page_text={(d.get('bodyText') or '')[:300]!r}", flush=True)
         print("\n=== REPORT ===")
         print(json.dumps(report, ensure_ascii=False, indent=2))
         return 2
