@@ -173,11 +173,50 @@ def solve_challenge():
         launch_opts["args"] = ["--window-position=-32000,-32000", "--window-size=1280,800"]
 
     t0 = time.time()
+    netlog = []
+    console = []
+
+    def _on_response(r):
+        try:
+            u = r.url
+            if "/cdn-cgi/" in u or r.status >= 400:
+                if len(netlog) < 40:
+                    netlog.append({"url": u[:300], "status": r.status})
+        except Exception:  # noqa: BLE001
+            pass
+
+    def _on_failed(r):
+        try:
+            if len(netlog) < 40:
+                netlog.append({"url": r.url[:300], "failed": r.failure})
+        except Exception:  # noqa: BLE001
+            pass
+
+    def _on_console(m):
+        try:
+            if len(console) < 30:
+                console.append(f"{m.type}: {m.text[:200]}")
+        except Exception:  # noqa: BLE001
+            pass
+
     with sync_playwright() as p:
         browser = p.chromium.launch(**launch_opts)
         context = browser.new_context(no_viewport=True)
         page = context.new_page()
+        page.on("response", _on_response)
+        page.on("requestfailed", _on_failed)
+        page.on("console", _on_console)
         resp = page.goto(TARGET, wait_until="domcontentloaded", timeout=60000)
+        goto_headers = {}
+        try:
+            if resp is not None:
+                goto_headers = {
+                    k: v for k, v in (resp.all_headers() or {}).items()
+                    if k.lower() in ("server", "cf-mitigated", "cf-ray", "cf-cache-status",
+                                     "location", "content-type", "set-cookie")
+                }
+        except Exception:  # noqa: BLE001
+            pass
         deadline = time.time() + SOLVE_TIMEOUT
         title = ""
         final_title = ""
@@ -234,6 +273,16 @@ def solve_challenge():
         _solved = any(c["name"] == "cf_clearance" for c in cookies) and not \
             CHALLENGE_TITLE_RE.search(final_title)
         diag = _dump_diag(page, context, _solved)
+        diag["netlog"] = netlog
+        diag["console"] = console
+        diag["goto_headers"] = goto_headers
+        try:
+            import json as _json
+            if _diag_dir():
+                with open(os.path.join(_diag_dir(), "diag.json"), "w", encoding="utf-8") as f:
+                    _json.dump(diag, f, ensure_ascii=False, indent=2)
+        except Exception:  # noqa: BLE001
+            pass
         page.close()
         context.close()
         browser.close()
