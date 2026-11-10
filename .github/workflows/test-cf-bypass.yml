@@ -1,0 +1,64 @@
+name: Test Cloudflare Bypass (hybrid method)
+
+# Standalone experiment — does NOT touch update.py or the database.
+# Goal: find out whether a GitHub Actions runner (datacenter IP) can
+#       1) solve the Cloudflare Managed Challenge with a real browser, and
+#       2) reuse cf_clearance + the same UA for plain HTTP scraping.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Base URL to test'
+        required: false
+        default: 'https://www.fasel-hd.cam/'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install python deps
+        run: pip install patchright parsel
+
+      - name: Install Chromium + system deps + xvfb
+        run: |
+          python -m patchright install --with-deps chromium
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq xvfb
+
+      - name: Run bypass verification (headed under xvfb)
+        env:
+          CF_TARGET: ${{ github.event.inputs.target || 'https://www.fasel-hd.cam/' }}
+          CF_CHANNEL: chromium
+          CF_HEADLESS: '0'
+          CF_SOLVE_TIMEOUT: '90'
+        run: |
+          set -o pipefail
+          xvfb-run -a --server-args="-screen 0 1280x900x24" \
+            python scripts/verify_cf_bypass.py 2>&1 | tee verify.log
+
+      - name: Show runner egress IP
+        if: always()
+        run: |
+          echo "egress IP: $(curl -s --max-time 20 https://api.ipify.org || true)"
+          echo "--- ASN / geo ---"
+          curl -s --max-time 20 https://ipinfo.io/json || true
+
+      - name: Upload log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cf-bypass-log
+          path: verify.log
+          if-no-files-found: ignore
