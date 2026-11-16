@@ -6617,3 +6617,15 @@ Run: 2026-11-16T17:31:10Z [faselhd]
 Total new (faselhd): 1 items across 1 sections
 Duration (faselhd): 49s
 
+Run: 2026-11-16T18:01:15Z [faselhd]
+[fd-movies      ] +0  -> skipped
+[fd-series      ] +0  -> skipped
+[fd-anime       ] +1 -> new total
+[fd-asian-series] +1 -> new total
+[fd-asian-movies] +0  -> skipped
+[fd-hindi       ] +0  -> skipped
+[fd-anime-movies] +0  -> skipped
+[fd-tvshows     ] +0  -> skipped
+Total new (faselhd): 2 items across 2 sections
+Duration (faselhd): 51s
+
