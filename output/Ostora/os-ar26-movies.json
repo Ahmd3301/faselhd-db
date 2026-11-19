@@ -1,11 +1,20 @@
 {
   "section": "os-ar26-movies",
-  "scraped_at": "2026-11-18T21:01:54Z",
-  "total": 42,
+  "scraped_at": "2026-11-19T20:02:22Z",
+  "total": 43,
   "items": [
     {
       "section_key": "os-ar26-movies",
       "rank": 1,
+      "slug": "169155",
+      "name": "الجواهرجي",
+      "link": "",
+      "img": "https://lh3.googleusercontent.com/-_a3tGNPyqmM/av3ZN4rbs9I/AAAAAAAArRE/CWo3TjC7m_wHh1gzCukGIOdHffDOuhleACNcBGAsYHQ/w250/0.jpg=w250",
+      "added_at": "2026-11-19T20:02:22Z"
+    },
+    {
+      "section_key": "os-ar26-movies",
+      "rank": 2,
       "slug": "169154",
       "name": "الكلام على إيه؟!: أول ليلة",
       "link": "",
@@ -14,7 +23,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 2,
+      "rank": 3,
       "slug": "169090",
       "name": "خلي بالك من نفسك",
       "link": "",
@@ -23,7 +32,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 3,
+      "rank": 4,
       "slug": "169014",
       "name": "مسألة حياة او موت",
       "link": "",
@@ -34,7 +43,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 4,
+      "rank": 5,
       "slug": "169013",
       "name": "قفلة",
       "link": "",
@@ -45,7 +54,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 5,
+      "rank": 6,
       "slug": "169008",
       "name": "32B: مشاكل داخلية",
       "link": "",
@@ -56,7 +65,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 6,
+      "rank": 7,
       "slug": "168953",
       "name": "صقر وكناريا",
       "link": "",
@@ -67,7 +76,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 7,
+      "rank": 8,
       "slug": "168880",
       "name": "المهايطية",
       "link": "",
@@ -78,7 +87,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 8,
+      "rank": 9,
       "slug": "168792",
       "name": "القصص",
       "link": "",
@@ -89,7 +98,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 9,
+      "rank": 10,
       "slug": "168800",
       "name": "فيزا",
       "link": "",
@@ -100,7 +109,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 10,
+      "rank": 11,
       "slug": "168757",
       "name": "Moana مدبلج مصري",
       "link": "",
@@ -111,7 +120,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 11,
+      "rank": 12,
       "slug": "168576",
       "name": "أسد",
       "link": "",
@@ -122,7 +131,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 12,
+      "rank": 13,
       "slug": "168536",
       "name": "Toy Story 5 مدبلج مصري",
       "link": "",
@@ -133,7 +142,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 13,
+      "rank": 14,
       "slug": "158994",
       "name": "أحبك من زمان",
       "link": "",
@@ -144,7 +153,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 14,
+      "rank": 15,
       "slug": "158991",
       "name": "طلقني",
       "link": "",
@@ -155,7 +164,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 15,
+      "rank": 16,
       "slug": "158960",
       "name": "ولنا في الخيال... حب؟",
       "link": "",
@@ -166,7 +175,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 16,
+      "rank": 17,
       "slug": "158932",
       "name": "العرافة واللعنة",
       "link": "",
@@ -177,7 +186,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 17,
+      "rank": 18,
       "slug": "158759",
       "name": "كولونيا",
       "link": "",
@@ -188,7 +197,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 18,
+      "rank": 19,
       "slug": "158756",
       "name": "إن غاب القط",
       "link": "",
@@ -199,7 +208,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 19,
+      "rank": 20,
       "slug": "158654",
       "name": "فاميلي بيزنس",
       "link": "",
@@ -210,7 +219,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 20,
+      "rank": 21,
       "slug": "158546",
       "name": "بنسيون دلال",
       "link": "",
@@ -221,7 +230,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 21,
+      "rank": 22,
       "slug": "158478",
       "name": "سندس في عالم قندس مدبلج مصري",
       "link": "",
@@ -232,7 +241,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 22,
+      "rank": 23,
       "slug": "158446",
       "name": "الست",
       "link": "",
@@ -243,7 +252,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 23,
+      "rank": 24,
       "slug": "158441",
       "name": "برشامة",
       "link": "",
@@ -254,7 +263,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 24,
+      "rank": 25,
       "slug": "158426",
       "name": "رمادي",
       "link": "",
@@ -265,7 +274,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 25,
+      "rank": 26,
       "slug": "158354",
       "name": "عصابة الماكس",
       "link": "",
@@ -276,7 +285,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 26,
+      "rank": 27,
       "slug": "158355",
       "name": "سوار",
       "link": "",
@@ -287,7 +296,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 27,
+      "rank": 28,
       "slug": "158326",
       "name": "المستعمرة",
       "link": "",
@@ -298,7 +307,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 28,
+      "rank": 29,
       "slug": "158029",
       "name": "في عز الضهر",
       "link": "",
@@ -309,7 +318,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 29,
+      "rank": 30,
       "slug": "158325",
       "name": "دخل الربيع يضحك",
       "link": "",
@@ -320,7 +329,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 30,
+      "rank": 31,
       "slug": "158269",
       "name": "الشنطة",
       "link": "",
@@ -331,7 +340,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 31,
+      "rank": 32,
       "slug": "157994",
       "name": "السلم والثعبان: لعب عيال",
       "link": "",
@@ -342,7 +351,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 32,
+      "rank": 33,
       "slug": "158008",
       "name": "أحمد وأحمد",
       "link": "",
@@ -353,7 +362,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 33,
+      "rank": 34,
       "slug": "158011",
       "name": "قشموع",
       "link": "",
@@ -364,7 +373,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 34,
+      "rank": 35,
       "slug": "157518",
       "name": "زوتوبيا 2 مدبلج مصري",
       "link": "",
@@ -375,7 +384,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 35,
+      "rank": 36,
       "slug": "154806",
       "name": "سنو وايت",
       "link": "",
@@ -386,7 +395,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 36,
+      "rank": 37,
       "slug": "154790",
       "name": "زوتوبيا 2 مدبلج فصحي",
       "link": "",
@@ -397,7 +406,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 37,
+      "rank": 38,
       "slug": "154742",
       "name": "قصر الباشا",
       "link": "",
@@ -408,7 +417,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 38,
+      "rank": 39,
       "slug": "154712",
       "name": "صوت هند رجب",
       "link": "",
@@ -419,7 +428,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 39,
+      "rank": 40,
       "slug": "154674",
       "name": "وقت اضافي",
       "link": "",
@@ -430,7 +439,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 40,
+      "rank": 41,
       "slug": "154665",
       "name": "أنستونا",
       "link": "",
@@ -441,7 +450,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 41,
+      "rank": 42,
       "slug": "154601",
       "name": "السادة الأفاضل",
       "link": "",
@@ -452,7 +461,7 @@
     },
     {
       "section_key": "os-ar26-movies",
-      "rank": 42,
+      "rank": 43,
       "slug": "154354",
       "name": "فيها إيه يعني",
       "link": "",
