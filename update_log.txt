@@ -7014,3 +7014,15 @@ Total new (topcinma): 5 items across 1 sections
 Duration (topcinma): 37s
 GRAND TOTAL: 5 new items | Faselhd 0 (38s) + TopCinma 5 (37s)
 
+Run: 2026-11-19T07:01:16Z [faselhd]
+[fd-movies      ] +6 -> new total
+[fd-series      ] +4 -> new total
+[fd-anime       ] +0  -> skipped
+[fd-asian-series] +0  -> skipped
+[fd-asian-movies] +0  -> skipped
+[fd-hindi       ] +2 -> new total
+[fd-anime-movies] +0  -> skipped
+[fd-tvshows     ] +1 -> new total
+Total new (faselhd): 13 items across 4 sections
+Duration (faselhd): 49s
+
